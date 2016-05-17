@@ -9,6 +9,24 @@ package cat.iespaucasesnoves.boat.classes;
  *
  * @author Toni
  */
-public class Patro {
-    
+public class Patro extends Persona {
+
+    private String titulacio;
+    private double costServei;
+
+    public Patro(String nom, String llinatge, boolean dni, boolean nie, boolean passaport, String numeroDocument, String adreça, int telefon, String email, String titulacio, double costServei) {
+
+        this.nom = nom;
+        this.llinatge = llinatge;
+        this.dni = dni;
+        this.nie = nie;
+        this.numeroDocument = numeroDocument;
+        this.adreça = adreça;
+        this.telefon = telefon;
+        this.email = email;
+        this.titulacio = titulacio;
+        this.costServei = costServei;
+
+    }
+
 }

@@ -9,6 +9,7 @@ package cat.iespaucasesnoves.boat.enumeracions;
  *
  * @author Toni
  */
-public class EnumHabilitats {
+public enum EnumHabilitats {
+    
     
 }

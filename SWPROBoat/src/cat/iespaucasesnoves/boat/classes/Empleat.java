@@ -5,12 +5,14 @@
  */
 package cat.iespaucasesnoves.boat.classes;
 
+import java.util.Date;
+
 /**
  *
  * @author Toni
  */
-public class Empleat {
-    public int any;
+public class Empleat extends Persona {
     
-    /*vtrñyreptiyrelpwtiyrepwortiu*/
+    protected Date dataAlta;
+    protected double sou;
 }

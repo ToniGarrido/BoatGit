@@ -9,6 +9,6 @@ package cat.iespaucasesnoves.boat.enumeracions;
  *
  * @author Toni
  */
-public class EnumEstat {
+public enum EnumEstat {
     
 }
