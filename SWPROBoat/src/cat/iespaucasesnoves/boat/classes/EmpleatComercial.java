@@ -11,4 +11,6 @@ package cat.iespaucasesnoves.boat.classes;
  */
 public class EmpleatComercial {
     public int edat;
+    
+    /*njhbfgieplwqekrgtnj*/
 }
