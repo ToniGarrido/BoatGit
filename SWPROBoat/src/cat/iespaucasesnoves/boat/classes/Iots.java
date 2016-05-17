@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package swproboat;
+package cat.iespaucasesnoves.boat.classes;
 
 /**
  *
- * @author miquel
+ * @author Toni
  */
-public class Prova {
+public class Iots {
     
 }
