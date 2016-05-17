@@ -10,5 +10,5 @@ package cat.iespaucasesnoves.boat.classes;
  * @author Toni
  */
 public class Empresa {
-    
+    public int pep;
 }
