@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cat.iespaucasesnoves.boat.classes;
 
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- *
- * @author Toni
- */
 public class Reparacio {
 
     private static int id;
@@ -36,14 +27,14 @@ public class Reparacio {
         this.infoReparacio = infoReparacio;
         nEmpleats = new ArrayList<>();
     }
-    
-    public void afegirEmpleat(EmpleatReparacio empleat){
-        
+
+    public void afegirEmpleat(EmpleatReparacio empleat) {
+
         nEmpleats.add(empleat);
     }
-    
-    public void eliminarEmpleat(EmpleatReparacio empleat){
-        
+
+    public void eliminarEmpleat(EmpleatReparacio empleat) {
+
         nEmpleats.remove(empleat);
     }
 
