@@ -43,4 +43,17 @@ public class Velers extends Model {
         this.nombreCabines = nombreCabines;
     }
     
+   @Override
+    public String toString() {
+        return "Model{" + "marca=" + marca + ", manega=" + manega + ", eslora=" + eslora + ", calat=" + calat + ", preu=" + preu + ", nomModel=" + nomModel + ", enVenta=" + enVenta + "nombreCascs=" + nombreCascs + ", nomnbrePals=" + nomnbrePals + ", nombreCabines=" + nombreCabines + '}';
+    }
+
+    
+
+    
+    
+    
+    
+    
+    
 }

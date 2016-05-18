@@ -1,15 +1,19 @@
 package cat.iespaucasesnoves.boat.classes;
 
+
+
 public class Vaixell {
 
-    private static int id;
+    private static int contador =0;
+    private int id;
     private Model model;
     private String matricula;
     private Client propietari;
     private boolean perLlogar;
 
     public Vaixell(Model model, String matricula, Client propietari, boolean perLlogar) {
-        id++;
+        contador++;
+        id=contador;
         this.model = model;
         this.matricula = matricula;
         this.propietari = propietari;
@@ -20,7 +24,7 @@ public class Vaixell {
 
     }
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
@@ -40,8 +44,8 @@ public class Vaixell {
         return perLlogar;
     }
 
-    public static void setId(int id) {
-        Vaixell.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setModel(Model model) {
@@ -59,5 +63,12 @@ public class Vaixell {
     public void setPerLlogar(boolean perLlogar) {
         this.perLlogar = perLlogar;
     }
+
+    @Override
+    public String toString() {
+        return "Vaixell{" + "id=" + id + ", model=" + model + ", matricula=" + matricula + ", propietari=" + propietari + ", perLlogar=" + perLlogar + '}';
+    }
+    
+    
 
 }

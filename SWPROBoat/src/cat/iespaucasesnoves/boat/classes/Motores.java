@@ -43,5 +43,9 @@ public class Motores extends Model {
     public void setPotencia(int potencia) {
         this.potencia = potencia;
     }
-    
+
+    public String toString() {
+        return "Motores{" + "marca=" + marca + ", manega=" + manega + ", eslora=" + eslora + ", calat=" + calat + ", preu=" + preu + ", nomModel=" + nomModel + ", enVenta=" + enVenta + "motorAux=" + motorAux + ", capacitatDeposit=" + capacitatDeposit + ", potencia=" + potencia + '}';
+    }
+
 }

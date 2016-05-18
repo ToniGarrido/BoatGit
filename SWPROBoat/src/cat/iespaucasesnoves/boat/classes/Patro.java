@@ -7,6 +7,8 @@ public class Patro extends Persona {
 
     public Patro(String nom, String llinatge, boolean dni, boolean nie, boolean passaport, String numeroDocument, String adreça, int telefon, String email, String titulacio, double costServei) {
 
+        contador++;
+        id=contador;
         this.nom = nom;
         this.llinatge = llinatge;
         this.dni = dni;
@@ -28,4 +30,5 @@ public class Patro extends Persona {
         return costServei;
     }
 
+    
 }

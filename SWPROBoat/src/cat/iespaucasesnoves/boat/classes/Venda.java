@@ -1,11 +1,13 @@
 package cat.iespaucasesnoves.boat.classes;
 
+
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
 import java.util.Date;
 
 public class Venda {
 
-    private static int id;
+    private static int contador =0;
+    private int id;
     private Client client;
     private Vaixell vaixell;
     private Date data;
@@ -14,6 +16,8 @@ public class Venda {
     private EmpleatComercial empleat;
 
     public Venda(Client client, Vaixell vaixell, Date data, double preu, EnumEstat estatVenda, EmpleatComercial empleat) {
+        contador++;
+        id=contador;
         this.client = client;
         this.vaixell = vaixell;
         this.data = data;
@@ -22,7 +26,7 @@ public class Venda {
         this.empleat = empleat;
     }
 
-    public static int getId() {
+    public  int getId() {
         return id;
     }
 
@@ -50,8 +54,8 @@ public class Venda {
         return empleat;
     }
 
-    public static void setId(int id) {
-        Venda.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setClient(Client client) {
@@ -77,5 +81,12 @@ public class Venda {
     public void setEmpleat(EmpleatComercial empleat) {
         this.empleat = empleat;
     }
+
+    @Override
+    public String toString() {
+        return "Venda{" + "id=" + id + ", client=" + client + ", vaixell=" + vaixell + ", data=" + data + ", preu=" + preu + ", estatVenda=" + estatVenda + ", empleat=" + empleat + '}';
+    }
+    
+    
 
 }

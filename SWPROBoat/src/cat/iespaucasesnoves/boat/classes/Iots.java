@@ -52,5 +52,12 @@ public class Iots extends Model {
     public void setPotencia(int potencia) {
         this.potencia = potencia;
     }
+    
+    public String toString() {
+        return "Iots{" + "marca=" + marca + ", manega=" + manega + ", eslora=" + eslora + ", calat=" + calat + ", preu=" + preu + ", nomModel=" + nomModel + ", enVenta=" + enVenta + "nombreCamarots=" + nombreCamarots + ", capacitatEmbarAux=" + capacitatEmbarAux + ", autonomia=" + autonomia + ", potencia=" + potencia + '}';
+    }
 
+    
+
+    
 }

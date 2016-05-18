@@ -2,7 +2,8 @@ package cat.iespaucasesnoves.boat.classes;
 
 public class Persona {
 
-    protected static int id;
+    protected static int contador =0;
+    protected int id;
     protected String nom;
     protected String llinatge;
     protected boolean dni;
@@ -13,7 +14,7 @@ public class Persona {
     protected int telefon;
     protected String email;
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
@@ -53,8 +54,8 @@ public class Persona {
         return email;
     }
 
-    public static void setId(int id) {
-        Persona.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setNom(String nom) {

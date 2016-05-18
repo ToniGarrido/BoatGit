@@ -39,4 +39,10 @@ public class Pagament {
         return codiVerificacio;
     }
 
+    @Override
+    public String toString() {
+        return "Pagament{" + "comptaCorrent=" + comptaCorrent + ", numero=" + numero + ", mes=" + mes + ", any=" + any + ", codiVerificacio=" + codiVerificacio + '}';
+    }
+    
+
 }

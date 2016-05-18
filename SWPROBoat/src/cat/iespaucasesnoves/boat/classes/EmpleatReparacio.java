@@ -9,6 +9,8 @@ public class EmpleatReparacio extends Empleat {
 
     public EmpleatReparacio(String nom, String llinatge, boolean dni, boolean nie, boolean passaport, String numeroDocument, String adreça, int telefon, String email) {
 
+        contador++;
+        id=contador;
         this.nom = nom;
         this.llinatge = llinatge;
         this.dni = dni;

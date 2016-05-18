@@ -8,6 +8,8 @@ public class EmpleatComercial extends Empleat {
 
     public EmpleatComercial(String nom, String llinatge, boolean dni, boolean nie, boolean passaport, String numeroDocument, String adreça, int telefon, String email, Date dataAlta, int sou, int percentatgeComissio) {
 
+        contador++;
+        id=contador;
         this.nom = nom;
         this.llinatge = llinatge;
         this.dni = dni;

@@ -1,20 +1,24 @@
 package cat.iespaucasesnoves.boat.classes;
 
+
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
 import java.util.Date;
 
 public class Lloguer {
 
-    protected static int id;
-    protected boolean tePatro;
-    protected Date dataInicial;
-    protected Date dataFinal;
-    protected Client client;
-    protected Patro patro;
-    protected EnumEstat estatLloger;
-    protected Vaixell vaixell;
+    private static int contador=0;
+    private int id;
+    private boolean tePatro;
+    private Date dataInicial;
+    private Date dataFinal;
+    private Client client;
+    private Patro patro;
+    private EnumEstat estatLloger;
+    private Vaixell vaixell;
 
     public Lloguer(boolean tePatro, Date dataInicial, Date dataFinal, Client client, EnumEstat estatLloger, Vaixell vaixell) {
+        contador++;
+        id=contador;
         this.tePatro = tePatro;
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
@@ -23,7 +27,7 @@ public class Lloguer {
         this.vaixell = vaixell;
     }
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
@@ -55,8 +59,8 @@ public class Lloguer {
         return vaixell;
     }
 
-    public static void setId(int id) {
-        Lloguer.id = id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setTePatro(boolean tePatro) {
