@@ -19,4 +19,24 @@ public class Pagament {
         this.codiVerificacio = codiVerificacio;
     }
 
+    public String getComptaCorrent() {
+        return comptaCorrent;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public int getAny() {
+        return any;
+    }
+
+    public int getCodiVerificacio() {
+        return codiVerificacio;
+    }
+
 }

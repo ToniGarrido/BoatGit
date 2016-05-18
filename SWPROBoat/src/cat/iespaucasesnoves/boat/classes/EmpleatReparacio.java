@@ -22,4 +22,13 @@ public class EmpleatReparacio extends Empleat {
         habilitat = new ArrayList<>();
 
     }
+
+    public ArrayList<EnumHabilitats> getHabilitat() {
+        return habilitat;
+    }
+
+    public void setHabilitat(ArrayList<EnumHabilitats> habilitat) {
+        this.habilitat = habilitat;
+    }
+    
 }

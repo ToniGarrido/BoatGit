@@ -18,4 +18,29 @@ public class Velers extends Model {
         this.nomnbrePals = nomnbrePals;
         this.nombreCabines = nombreCabines;
     }
+
+    public int getNombreCascs() {
+        return nombreCascs;
+    }
+
+    public int getNomnbrePals() {
+        return nomnbrePals;
+    }
+
+    public int getNombreCabines() {
+        return nombreCabines;
+    }
+
+    public void setNombreCascs(int nombreCascs) {
+        this.nombreCascs = nombreCascs;
+    }
+
+    public void setNomnbrePals(int nomnbrePals) {
+        this.nomnbrePals = nomnbrePals;
+    }
+
+    public void setNombreCabines(int nombreCabines) {
+        this.nombreCabines = nombreCabines;
+    }
+    
 }

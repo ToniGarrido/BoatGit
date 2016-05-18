@@ -22,4 +22,60 @@ public class Venda {
         this.empleat = empleat;
     }
 
+    public static int getId() {
+        return id;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public Vaixell getVaixell() {
+        return vaixell;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public double getPreu() {
+        return preu;
+    }
+
+    public EnumEstat getEstatVenda() {
+        return estatVenda;
+    }
+
+    public EmpleatComercial getEmpleat() {
+        return empleat;
+    }
+
+    public static void setId(int id) {
+        Venda.id = id;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public void setVaixell(Vaixell vaixell) {
+        this.vaixell = vaixell;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public void setPreu(double preu) {
+        this.preu = preu;
+    }
+
+    public void setEstatVenda(EnumEstat estatVenda) {
+        this.estatVenda = estatVenda;
+    }
+
+    public void setEmpleat(EmpleatComercial empleat) {
+        this.empleat = empleat;
+    }
+
 }

@@ -15,11 +15,17 @@ public class Empresa {
     private HashMap<Integer, Client> llistaClients;
 
     public void Empresa(String nom) {
-
+    this.nom = nom;
+    llistaPatrons = new ArrayList();
+    llistaReparacions = new HashMap();
+    llistaEmpleats = new HashMap();
+    llistaLloguers = new HashMap();
+    llistaModel = new HashMap();
+    llistaClients = new HashMap();
     }
 
     public void afegirReparacio(Reparacio reparacio) {
-
+    llistaReparacions.put(reparacio.getIdentificador, reparacio);
     }
 
     public void afegirLloguer(Lloguer lloguer) {

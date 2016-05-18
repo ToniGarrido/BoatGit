@@ -21,4 +21,36 @@ public class Iots extends Model {
         this.potencia = potencia;
     }
 
+    public int getNombreCamarots() {
+        return nombreCamarots;
+    }
+
+    public boolean isCapacitatEmbarAux() {
+        return capacitatEmbarAux;
+    }
+
+    public int getAutonomia() {
+        return autonomia;
+    }
+
+    public int getPotencia() {
+        return potencia;
+    }
+
+    public void setNombreCamarots(int nombreCamarots) {
+        this.nombreCamarots = nombreCamarots;
+    }
+
+    public void setCapacitatEmbarAux(boolean capacitatEmbarAux) {
+        this.capacitatEmbarAux = capacitatEmbarAux;
+    }
+
+    public void setAutonomia(int autonomia) {
+        this.autonomia = autonomia;
+    }
+
+    public void setPotencia(int potencia) {
+        this.potencia = potencia;
+    }
+
 }

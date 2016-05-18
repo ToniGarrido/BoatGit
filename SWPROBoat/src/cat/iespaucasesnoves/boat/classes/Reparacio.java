@@ -38,4 +38,76 @@ public class Reparacio {
         nEmpleats.remove(empleat);
     }
 
+    public static int getId() {
+        return id;
+    }
+
+    public ArrayList<EmpleatReparacio> getnEmpleats() {
+        return nEmpleats;
+    }
+
+    public String getLloc() {
+        return lloc;
+    }
+
+    public Date getDataInici() {
+        return dataInici;
+    }
+
+    public Date getDataFinal() {
+        return dataFinal;
+    }
+
+    public String getDescripcio() {
+        return descripcio;
+    }
+
+    public double getPreu() {
+        return preu;
+    }
+
+    public EnumEstat getEstatReparacio() {
+        return estatReparacio;
+    }
+
+    public String getInfoReparacio() {
+        return infoReparacio;
+    }
+
+    public static void setId(int id) {
+        Reparacio.id = id;
+    }
+
+    public void setnEmpleats(ArrayList<EmpleatReparacio> nEmpleats) {
+        this.nEmpleats = nEmpleats;
+    }
+
+    public void setLloc(String lloc) {
+        this.lloc = lloc;
+    }
+
+    public void setDataInici(Date dataInici) {
+        this.dataInici = dataInici;
+    }
+
+    public void setDataFinal(Date dataFinal) {
+        this.dataFinal = dataFinal;
+    }
+
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
+    }
+
+    public void setPreu(double preu) {
+        this.preu = preu;
+    }
+
+    public void setEstatReparacio(EnumEstat estatReparacio) {
+        this.estatReparacio = estatReparacio;
+    }
+
+    public void setInfoReparacio(String infoReparacio) {
+        this.infoReparacio = infoReparacio;
+    }
+
 }

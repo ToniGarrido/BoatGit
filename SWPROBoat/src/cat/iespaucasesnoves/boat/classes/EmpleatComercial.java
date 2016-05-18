@@ -22,4 +22,12 @@ public class EmpleatComercial extends Empleat {
 
     }
 
+    public int getPercentatgeComissio() {
+        return percentatgeComissio;
+    }
+
+    public void setPercentatgeComissio(int percentatgeComissio) {
+        this.percentatgeComissio = percentatgeComissio;
+    }
+
 }

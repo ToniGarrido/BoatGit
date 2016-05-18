@@ -20,4 +20,44 @@ public class Vaixell {
 
     }
 
+    public static int getId() {
+        return id;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public Client getPropietari() {
+        return propietari;
+    }
+
+    public boolean isPerLlogar() {
+        return perLlogar;
+    }
+
+    public static void setId(int id) {
+        Vaixell.id = id;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public void setPropietari(Client propietari) {
+        this.propietari = propietari;
+    }
+
+    public void setPerLlogar(boolean perLlogar) {
+        this.perLlogar = perLlogar;
+    }
+
 }

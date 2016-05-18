@@ -19,4 +19,29 @@ public class Motores extends Model {
         this.capacitatDeposit = capacitatDeposit;
         this.potencia = potencia;
     }
+
+    public boolean isMotorAux() {
+        return motorAux;
+    }
+
+    public int getCapacitatDeposit() {
+        return capacitatDeposit;
+    }
+
+    public int getPotencia() {
+        return potencia;
+    }
+
+    public void setMotorAux(boolean motorAux) {
+        this.motorAux = motorAux;
+    }
+
+    public void setCapacitatDeposit(int capacitatDeposit) {
+        this.capacitatDeposit = capacitatDeposit;
+    }
+
+    public void setPotencia(int potencia) {
+        this.potencia = potencia;
+    }
+    
 }

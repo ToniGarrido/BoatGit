@@ -20,4 +20,12 @@ public class Patro extends Persona {
 
     }
 
+    public String getTitulacio() {
+        return titulacio;
+    }
+
+    public double getCostServei() {
+        return costServei;
+    }
+
 }

@@ -16,4 +16,13 @@ public class Client extends Persona {
         this.email = email;
         this.formaPagament = formaPagament;
     }
+
+    public Pagament getFormaPagament() {
+        return formaPagament;
+    }
+
+    public void setFormaPagament(Pagament formaPagament) {
+        this.formaPagament = formaPagament;
+    }
+    
 }
