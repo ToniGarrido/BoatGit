@@ -3,7 +3,7 @@ package cat.iespaucasesnoves.boat.classes;
 public class Pagament {
 
     private String comptaCorrent;
-    private int numero;
+    private String numero;
     private int mes;
     private int any;
     private int codiVerificacio;
@@ -12,7 +12,7 @@ public class Pagament {
         this.comptaCorrent = comptaCorrent;
     }
 
-    public Pagament(int numero, int mes, int any, int codiVerificacio) {
+    public Pagament(String numero, int mes, int any, int codiVerificacio) {
         this.numero = numero;
         this.mes = mes;
         this.any = any;
@@ -23,7 +23,7 @@ public class Pagament {
         return comptaCorrent;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 

@@ -1,17 +1,18 @@
 package cat.iespaucasesnoves.boat.classes;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Empleat extends Persona {
 
-    protected Date dataAlta;
+    protected Calendar dataAlta;
     protected double sou;
 
-    public Date getDataAlta() {
+    public Calendar getDataAlta() {
         return dataAlta;
     }
 
-    public void setDataAlta(Date dataAlta) {
+    public void setDataAlta(Calendar dataAlta) {
         this.dataAlta = dataAlta;
     }
 
@@ -22,5 +23,12 @@ public class Empleat extends Persona {
     public void setSou(double sou) {
         this.sou = sou;
     }
+
+    @Override
+    public String toString() {
+        return "Empleat{" + "dataAlta=" + dataAlta + ", sou=" + sou + '}';
+    }
+    
+    
     
 }
