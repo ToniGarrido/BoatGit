@@ -78,11 +78,12 @@ public class Empresa {
     public ArrayList<Model> llistarTipusEmb(String model) {
         ArrayList<Model> llistaTipus = new ArrayList<>();
 
-        for(Entry<Integer,Model> d : llistaModel.entrySet())
-        return llistaTipus ;
-}
+        for (Entry<Integer, Model> d : llistaModel.entrySet()) {
+            return llistaTipus;
+        }
+    }
 
-public ArrayList<Model> llistarIntervalPreu(Double preuMinim, Double preuMaxim) {
+    public ArrayList<Model> llistarIntervalPreu(Double preuMinim, Double preuMaxim) {
         ArrayList<Model> modelsInterval = new ArrayList();
 
         for (Entry<Integer, Model> d : llistaModel.entrySet()) {
@@ -90,9 +91,15 @@ public ArrayList<Model> llistarIntervalPreu(Double preuMinim, Double preuMaxim) 
             if (mo.getPreu() > preuMinim && mo.getPreu() < preuMaxim) {
                 modelsInterval.add(mo);
             }
-        
-        return modelsInterval;
-    }
+
+            return modelsInterval;
+        }
+
+    
+
+    
+
+    
 
     public ArrayList<Reparacio> llistarRepaPendent() {
 
@@ -124,31 +131,54 @@ public ArrayList<Model> llistarIntervalPreu(Double preuMinim, Double preuMaxim) 
     }
 
     public void eliminarVaixell(Vaixell vaixell) {
-
+        if (llistaVaixells.containsValue(vaixell)) {
+            llistaVaixells.remove(vaixell.getId());
+        } else {/*tirar Excepcio */
+        }
     }
 
     public void eliminarPatro(Patro patro) {
-
+        for (Patro cont : llistaPatrons) {
+            if (cont == patro) {
+                llistaPatrons.remove(patro);
+            } else {/*tirar Excepcio */
+            }
+        }
     }
 
     public void eliminarReparacio(Reparacio reparacio) {
-
+        if (llistaReparacions.containsValue(reparacio)) {
+            llistaReparacions.remove(reparacio.getId());
+        } else {/*tirar Excepcio */
+        }
     }
 
     public void eliminarEmpleat(Empleat empleat) {
-
+        if (llistaEmpleats.containsValue(empleat)) {
+            llistaEmpleats.remove(empleat.getId());
+        } else {/*tirar Excepcio */
+        }
     }
 
     public void eliminarLloguer(Lloguer lloguer) {
-
+        if (llistaLloguers.containsValue(lloguer)) {
+            llistaLloguers.remove(lloguer.getId());
+        } else {/*tirar Excepcio */
+        }
     }
 
     public void eliminarModel(Model model) {
-
+        if (llistaModel.containsValue(model)) {
+            llistaModel.remove(model.());
+        } else {/*tirar Excepcio */
+        }
     }
 
     public void eliminarClient(Client client) {
-
+        if (llistaClients.containsValue(client)) {
+            llistaClients.remove(client.getId());
+        } else {/*tirar Excepcio */
+        }
     }
 
 }
