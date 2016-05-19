@@ -80,7 +80,7 @@ public class Empresa {
 
         for (Entry<Integer, Model> d : llistaModel.entrySet()) {
             Model mo = d.getValue();
-            if(mo.getClass()==model.getClass()){
+            if (mo.getClass() == model.getClass()) {
                 llistaTipus.add(mo);
             }
 
@@ -138,11 +138,25 @@ public class Empresa {
         return repaVaixell;
     }
 
-    public Empleat ferNomina(Empleat empleat) {
-        ArrayList<Empleat> nomines = new ArrayList();
-         for (Entry<Integer, Vaixell> d : llistaModel.entrySet()) {
-            Model mo = d.getValue();
-        
+    public Empleat ferNomina(EmpleatComercial empleat) {
+        double total = 0;
+        for (Entry<Integer, Venda> d : llistaVendes.entrySet()) {
+            Venda ve = d.getValue();
+
+            if (ve.getClient().equals(empleat)) {
+                double suma = ve.getPreu() * empleat.getPercentatgeComissio() / 100;
+
+                total = suma + total;
+            }
+            
+            empleat.setSou(empleat.getSou()+total);
+
+        }
+        return empleat;
+    }
+
+    public Empleat ferNomina(EmpleatReparacio empleat) {
+
         return empleat;
     }
 

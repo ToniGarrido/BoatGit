@@ -10,6 +10,7 @@ public class Client extends Persona {
         this.llinatge = llinatge;
         this.dni = dni;
         this.nie = nie;
+        this.passaport=passaport;
         this.numeroDocument = numeroDocument;
         this.adreça = adreça;
         this.telefon = telefon;
