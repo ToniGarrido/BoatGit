@@ -7,6 +7,8 @@ public class Motores extends Model {
     private int potencia;
 
     public Motores(String marca, double manega, double eslora, double calat, double preu, String nomModel, boolean enVenta, boolean motorAux, int capacitatDeposit, int potencia) {
+        contador++;
+        id = contador;
         this.marca = marca;
         this.manega = manega;
         this.eslora = eslora;

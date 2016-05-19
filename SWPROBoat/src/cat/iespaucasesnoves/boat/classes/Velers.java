@@ -7,6 +7,9 @@ public class Velers extends Model {
     private int nombreCabines;
 
     public Velers(String marca, double manega, double eslora, double calat, double preu, String nomModel, boolean enVenta, int nombreCascs, int nomnbrePals, int nombreCabines) {
+        contador++;
+        id = contador;
+
         this.marca = marca;
         this.manega = manega;
         this.eslora = eslora;
@@ -42,18 +45,10 @@ public class Velers extends Model {
     public void setNombreCabines(int nombreCabines) {
         this.nombreCabines = nombreCabines;
     }
-    
-   @Override
+
+    @Override
     public String toString() {
         return "Model{" + "marca=" + marca + ", manega=" + manega + ", eslora=" + eslora + ", calat=" + calat + ", preu=" + preu + ", nomModel=" + nomModel + ", enVenta=" + enVenta + "nombreCascs=" + nombreCascs + ", nomnbrePals=" + nomnbrePals + ", nombreCabines=" + nombreCabines + '}';
     }
 
-    
-
-    
-    
-    
-    
-    
-    
 }

@@ -8,6 +8,8 @@ public class Iots extends Model {
     private int potencia;
 
     public Iots(String marca, double manega, double eslora, double calat, double preu, String nomModel, boolean enVenta, int nombreCamarots, boolean capacitatEmbarAux, int autonomia, int potencia) {
+        contador++;
+        id=contador;
         this.marca = marca;
         this.manega = manega;
         this.eslora = eslora;

@@ -1,13 +1,12 @@
 package cat.iespaucasesnoves.boat.classes;
 
-
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Reparacio {
 
-    private static int contador =0;
+    private static int contador = 0;
     private int id;
     private ArrayList<EmpleatReparacio> nEmpleats;
     private String lloc;
@@ -17,10 +16,11 @@ public class Reparacio {
     private double preu;
     private EnumEstat estatReparacio;
     private String infoReparacio;
+    private Vaixell vaixell;
 
-    public Reparacio(ArrayList<EmpleatReparacio> nEmpleats, String lloc, Date dataInici, Date dataFinal, String descripcio, double preu, EnumEstat estatReparacio, String infoReparacio) {
+    public Reparacio(ArrayList<EmpleatReparacio> nEmpleats, String lloc, Date dataInici, Date dataFinal, String descripcio, double preu, EnumEstat estatReparacio, String infoReparacio, Vaixell vaixell) {
         contador++;
-        id=contador;
+        id = contador;
         this.nEmpleats = nEmpleats;
         this.lloc = lloc;
         this.dataInici = dataInici;
@@ -29,6 +29,7 @@ public class Reparacio {
         this.preu = preu;
         this.estatReparacio = estatReparacio;
         this.infoReparacio = infoReparacio;
+        this.vaixell = vaixell;
         nEmpleats = new ArrayList<>();
     }
 
@@ -52,6 +53,10 @@ public class Reparacio {
 
     public String getLloc() {
         return lloc;
+    }
+
+    public Vaixell getVaixell() {
+        return vaixell;
     }
 
     public Date getDataInici() {
@@ -118,7 +123,5 @@ public class Reparacio {
     public String toString() {
         return "Reparacio{" + "id=" + id + ", nEmpleats=" + nEmpleats + ", lloc=" + lloc + ", dataInici=" + dataInici + ", dataFinal=" + dataFinal + ", descripcio=" + descripcio + ", preu=" + preu + ", estatReparacio=" + estatReparacio + ", infoReparacio=" + infoReparacio + '}';
     }
-    
-    
 
 }

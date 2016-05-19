@@ -33,12 +33,11 @@ public class Empresa {
         llistaReparacions.put(reparacio.getId(), reparacio);
     }
 
-    //PROBLEMA AMB CLAU PER AFEGIR MODEL AL HASHMAP
-    /* public void afegirModel(Model model) {
-      // llistaModel.put(model., model);
-    }*/
-    public void afegirLloguer(Lloguer lloguer) {
+    public void afegirModel(Model model) {
+        llistaModel.put(model.getId(), model);
+    }
 
+    public void afegirLloguer(Lloguer lloguer) {
         llistaLloguers.put(lloguer.getId(), lloguer);
 
     }
@@ -71,16 +70,22 @@ public class Empresa {
             if (mo.enVenta == true) {
                 llistaDisponible.add(mo);
             }
-            return llistaDisponible;
+
         }
+        return llistaDisponible;
     }
 
-    public ArrayList<Model> llistarTipusEmb(String model) {
+    public ArrayList<Model> llistarTipusEmb(Model model) {
         ArrayList<Model> llistaTipus = new ArrayList<>();
 
         for (Entry<Integer, Model> d : llistaModel.entrySet()) {
-            return llistaTipus;
+            Model mo = d.getValue();
+            if(mo.getClass()==model.getClass()){
+                llistaTipus.add(mo);
+            }
+
         }
+        return llistaTipus;
     }
 
     public ArrayList<Model> llistarIntervalPreu(Double preuMinim, Double preuMaxim) {
@@ -92,36 +97,53 @@ public class Empresa {
                 modelsInterval.add(mo);
             }
 
-            return modelsInterval;
         }
-
-    
-
-    
-
-    
+        return modelsInterval;
+    }
 
     public ArrayList<Reparacio> llistarRepaPendent() {
 
         ArrayList<Reparacio> repaPendents = new ArrayList();
+        for (Entry<Integer, Reparacio> d : llistaReparacions.entrySet()) {
+            Reparacio re = d.getValue();
+            if (re.getEstatReparacio() == EnumEstat.DISPONIBLE) {
+                repaPendents.add(re);
+            }
+        }
         return repaPendents;
     }
 
     public ArrayList<Reparacio> llistarRepaAturada() {
 
         ArrayList<Reparacio> repaAturades = new ArrayList();
+        for (Entry<Integer, Reparacio> d : llistaReparacions.entrySet()) {
+            Reparacio re = d.getValue();
+            if (re.getEstatReparacio() == EnumEstat.NODISPONIBLE) {
+                repaAturades.add(re);
+            }
+        }
+
         return repaAturades;
     }
 
     public ArrayList<Reparacio> llistarRepaVaixell(Vaixell vaixell) {
 
         ArrayList<Reparacio> repaVaixell = new ArrayList();
+        for (Entry<Integer, Reparacio> d : llistaReparacions.entrySet()) {
+            Reparacio re = d.getValue();
+            if (re.getVaixell().equals(vaixell)) {
+                repaVaixell.add(re);
+            }
+        }
         return repaVaixell;
     }
 
-    public ArrayList<Empleat> ferNomina() {
+    public Empleat ferNomina(Empleat empleat) {
         ArrayList<Empleat> nomines = new ArrayList();
-        return nomines;
+         for (Entry<Integer, Vaixell> d : llistaModel.entrySet()) {
+            Model mo = d.getValue();
+        
+        return empleat;
     }
 
     public ArrayList<Vaixell> llistarVaixellDispData(Date dataInicial, Date dataFinal) {
@@ -169,7 +191,7 @@ public class Empresa {
 
     public void eliminarModel(Model model) {
         if (llistaModel.containsValue(model)) {
-            llistaModel.remove(model.());
+            llistaModel.remove(model.getId());
         } else {/*tirar Excepcio */
         }
     }

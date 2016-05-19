@@ -2,6 +2,8 @@ package cat.iespaucasesnoves.boat.classes;
 
 public class Model {
 
+    protected static int contador = 0;
+    protected int id;
     protected String marca;
     protected double manega;
     protected double eslora;
@@ -9,6 +11,10 @@ public class Model {
     protected double preu;
     protected String nomModel;
     protected boolean enVenta;
+
+    public int getId() {
+        return id;
+    }
 
     public String getMarca() {
         return marca;
@@ -65,8 +71,5 @@ public class Model {
     public void setEnVenta(boolean enVenta) {
         this.enVenta = enVenta;
     }
-
-    
-    
 
 }
