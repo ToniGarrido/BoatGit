@@ -5,14 +5,14 @@ import java.util.Date;
 
 public class Empleat extends Persona {
 
-    protected Calendar dataAlta;
+    protected Date dataAlta;
     protected double sou;
 
-    public Calendar getDataAlta() {
+    public Date getDataAlta() {
         return dataAlta;
     }
 
-    public void setDataAlta(Calendar dataAlta) {
+    public void setDataAlta(Date dataAlta) {
         this.dataAlta = dataAlta;
     }
 

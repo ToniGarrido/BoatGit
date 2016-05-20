@@ -18,10 +18,9 @@ public class Reparacio {
     private String infoReparacio;
     private Vaixell vaixell;
 
-    public Reparacio(ArrayList<EmpleatReparacio> nEmpleats, String lloc, Date dataInici, Date dataFinal, String descripcio, double preu, EnumEstat estatReparacio, String infoReparacio, Vaixell vaixell) {
+    public Reparacio(String lloc, Date dataInici, Date dataFinal, String descripcio, double preu, EnumEstat estatReparacio, String infoReparacio, Vaixell vaixell) {
         contador++;
         id = contador;
-        this.nEmpleats = nEmpleats;
         this.lloc = lloc;
         this.dataInici = dataInici;
         this.dataFinal = dataFinal;
