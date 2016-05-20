@@ -18,7 +18,7 @@ public class Empresa {
     private HashMap<Integer, Vaixell> llistaVaixells;
     private HashMap<Integer, Client> llistaClients;
 
-    public void Empresa(String nom) {
+    public Empresa(String nom) {
         this.nom = nom;
         llistaPatrons = new ArrayList();
         llistaReparacions = new HashMap();

@@ -16,7 +16,6 @@ public class Motores extends Model {
         this.preu = preu;
         this.nomModel = nomModel;
         this.enVenta = enVenta;
-        this.potencia = potencia;
         this.motorAux = motorAux;
         this.capacitatDeposit = capacitatDeposit;
         this.potencia = potencia;

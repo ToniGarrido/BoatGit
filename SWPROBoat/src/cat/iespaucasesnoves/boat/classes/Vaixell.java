@@ -1,23 +1,22 @@
 package cat.iespaucasesnoves.boat.classes;
 
-
-
 public class Vaixell {
 
-    private static int contador =0;
+    private static int contador = 0;
     private int id;
     private Model model;
     private String matricula;
     private Client propietari;
     private boolean perLlogar;
+    private double preuPerDia;
 
-    public Vaixell(Model model, String matricula, Client propietari, boolean perLlogar) {
+    public Vaixell(Model model, String matricula, boolean perLlogar, double preuPerDia) {
         contador++;
-        id=contador;
+        id = contador;
         this.model = model;
         this.matricula = matricula;
-        this.propietari = propietari;
         this.perLlogar = perLlogar;
+        this.preuPerDia = preuPerDia;
     }
 
     public void tornarJSON() {
@@ -68,7 +67,5 @@ public class Vaixell {
     public String toString() {
         return "Vaixell{" + "id=" + id + ", model=" + model + ", matricula=" + matricula + ", propietari=" + propietari + ", perLlogar=" + perLlogar + '}';
     }
-    
-    
 
 }
