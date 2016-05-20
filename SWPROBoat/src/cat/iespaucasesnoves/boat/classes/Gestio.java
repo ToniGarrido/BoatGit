@@ -1,5 +1,13 @@
 package cat.iespaucasesnoves.boat.classes;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -95,11 +103,14 @@ public class Gestio {
 
     }
 
-    public void generarFitxer(String origen, Empresa Empr) {
-
+    public void generarFitxer(String desti, Empresa empr) throws IOException {
+		try (ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(desti)))){
+			out.writeObject(empr);
     }
-
-    public void llegirFitxer(String origen) {
+    }
+    public void llegirFitxer(String origen) throws FileNotFoundException, IOException{
+		try (ObjectInputStream in = new ObjectInputStream (new BufferedInputStream(new FileInputStream(origen)))){
+			}
 
     }
 
