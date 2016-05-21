@@ -26,6 +26,17 @@ public class Lloguer {
         this.estatLloger = estatLloger;
         this.vaixell = vaixell;
     }
+    public Lloguer(boolean tePatro,Patro patro, Date dataInicial, Date dataFinal, Client client, EnumEstat estatLloger, Vaixell vaixell) {
+        contador++;
+        id=contador;
+        this.tePatro = tePatro;
+        this.patro=patro;
+        this.dataInicial = dataInicial;
+        this.dataFinal = dataFinal;
+        this.client = client;
+        this.estatLloger = estatLloger;
+        this.vaixell = vaixell;
+    }
 
     public int getId() {
         return id;

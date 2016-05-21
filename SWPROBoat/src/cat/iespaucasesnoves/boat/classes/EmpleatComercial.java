@@ -35,7 +35,7 @@ public class EmpleatComercial extends Empleat {
 
     @Override
     public String toString() {
-        return "EmpleatComercial{id=" + id + ", nom=" + nom + ", llinatge=" + llinatge + ", dni=" + dni + ", nie=" + nie + ", passaport=" + passaport + ", numeroDocument=" + numeroDocument + ", adre\u00e7a=" + adreça + ", telefon=" + telefon + ", email=" + email + "dataAlta=" + dataAlta + ", sou=" + sou + ", percentatgeComissio=" + percentatgeComissio + "}";
+        return "EmpleatComercial{id=" + id + ", nom=" + nom + ", llinatge=" + llinatge + ", dni=" + dni + ", nie=" + nie + ", passaport=" + passaport + ", numeroDocument=" + numeroDocument + ", adre\u00e7a=" + adreça + ", telefon=" + telefon + ", email=" + email + "dataAlta=" + dataAlta + ", sou=" + sou + ", percentatgeComissio=" + percentatgeComissio + "}\n";
     }
 
 }

@@ -46,7 +46,7 @@ public class Motores extends Model {
     }
 
     public String toString() {
-        return "Motores{" + "marca=" + marca + ", manega=" + manega + ", eslora=" + eslora + ", calat=" + calat + ", preu=" + preu + ", nomModel=" + nomModel + ", enVenta=" + enVenta + "motorAux=" + motorAux + ", capacitatDeposit=" + capacitatDeposit + ", potencia=" + potencia + '}';
+        return "Motora{" + "marca=" + marca + ", manega=" + manega + ", eslora=" + eslora + ", calat=" + calat + ", preu=" + preu + ", nomModel=" + nomModel + ", enVenta=" + enVenta + "motorAux=" + motorAux + ", capacitatDeposit=" + capacitatDeposit + ", potencia=" + potencia + "}\n";
     }
 
 }

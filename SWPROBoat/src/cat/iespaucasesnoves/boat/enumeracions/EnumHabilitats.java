@@ -11,5 +11,8 @@ package cat.iespaucasesnoves.boat.enumeracions;
  */
 public enum EnumHabilitats {
     FUSTERIA, MECANICA, FONTANERIA, ELECTRICITAT, FIBRA_DE_VIDRE, VELES;
+    
+    
 
 }
+

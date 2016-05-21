@@ -25,6 +25,7 @@ public class Empresa {
         llistaEmpleats = new HashMap();
         llistaLloguers = new HashMap();
         llistaVendes = new HashMap();
+        llistaVaixells = new HashMap();
         llistaModel = new HashMap();
         llistaClients = new HashMap();
     }
@@ -63,7 +64,7 @@ public class Empresa {
         llistaPatrons.add(patro);
     }
 
-    public ArrayList<Model> llistarMoDisponibles(Model model) {
+    public ArrayList<Model> llistarMoDisponibles() {
         ArrayList<Model> llistaDisponible = new ArrayList<>();
         for (Entry<Integer, Model> d : llistaModel.entrySet()) {
             Model mo = d.getValue();
@@ -140,18 +141,22 @@ public class Empresa {
 
     public Empleat ferNomina(EmpleatComercial empleat) {
         double total = 0;
+        double suma  =0;
         for (Entry<Integer, Venda> d : llistaVendes.entrySet()) {
             Venda ve = d.getValue();
 
-            if (ve.getClient().equals(empleat)) {
-                double suma = ve.getPreu() * empleat.getPercentatgeComissio() / 100;
+            if (ve.getEmpleat().equals(empleat)) {
+                suma= ve.getPreu() * empleat.getPercentatgeComissio();
+                suma= suma / 100;
 
                 total = suma + total;
             }
             
-            empleat.setSou(empleat.getSou()+total);
+            
 
         }
+        
+        empleat.setSou(empleat.getSou()+total);
         return empleat;
     }
 

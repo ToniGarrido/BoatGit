@@ -24,11 +24,4 @@ public class Empleat extends Persona {
         this.sou = sou;
     }
 
-    @Override
-    public String toString() {
-        return "Empleat{" + "dataAlta=" + dataAlta + ", sou=" + sou + '}';
-    }
-    
-    
-    
 }

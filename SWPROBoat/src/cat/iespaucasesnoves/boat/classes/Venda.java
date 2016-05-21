@@ -15,13 +15,13 @@ public class Venda {
     private EnumEstat estatVenda;
     private EmpleatComercial empleat;
 
-    public Venda(Client client, Vaixell vaixell, Date data, double preu, EnumEstat estatVenda, EmpleatComercial empleat) {
+    public Venda(Client client, Vaixell vaixell, Date data, EnumEstat estatVenda, EmpleatComercial empleat) {
         contador++;
         id=contador;
         this.client = client;
         this.vaixell = vaixell;
         this.data = data;
-        this.preu = preu;
+        this.preu = vaixell.getModel().getPreu();
         this.estatVenda = estatVenda;
         this.empleat = empleat;
     }

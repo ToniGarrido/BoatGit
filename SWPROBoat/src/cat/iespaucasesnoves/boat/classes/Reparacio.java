@@ -120,7 +120,7 @@ public class Reparacio {
 
     @Override
     public String toString() {
-        return "Reparacio{" + "id=" + id + ", nEmpleats=" + nEmpleats + ", lloc=" + lloc + ", dataInici=" + dataInici + ", dataFinal=" + dataFinal + ", descripcio=" + descripcio + ", preu=" + preu + ", estatReparacio=" + estatReparacio + ", infoReparacio=" + infoReparacio + '}';
+        return "Reparacio{" +"id=" + id + ", lloc=" + lloc + ", dataInici=" + dataInici + ", dataFinal=" + dataFinal + ", descripcio=" + descripcio + ", preu=" + preu + ", estatReparacio=" + estatReparacio + ", infoReparacio=" + infoReparacio +  ", empleats a càrrec=" + nEmpleats + "}\n";
     }
 
 }

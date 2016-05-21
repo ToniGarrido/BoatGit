@@ -10,6 +10,15 @@ public class Vaixell {
     private boolean perLlogar;
     private double preuPerDia;
 
+    public Vaixell(Model model, String matricula, boolean perLlogar) {
+        contador++;
+        id = contador;
+        this.model = model;
+        this.matricula = matricula;
+        this.perLlogar = perLlogar;
+        
+    }
+    
     public Vaixell(Model model, String matricula, boolean perLlogar, double preuPerDia) {
         contador++;
         id = contador;
