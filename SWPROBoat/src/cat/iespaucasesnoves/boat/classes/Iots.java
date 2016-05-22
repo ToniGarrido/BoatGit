@@ -1,5 +1,7 @@
 package cat.iespaucasesnoves.boat.classes;
 
+import cat.iespaucasesnoves.boat.excepcions.LimitCaracterString;
+
 public class Iots extends Model {
 
     private int nombreCamarots;
@@ -7,9 +9,9 @@ public class Iots extends Model {
     private int autonomia;
     private int potencia;
 
-    public Iots(String marca, double manega, double eslora, double calat, double preu, String nomModel, boolean enVenta, int nombreCamarots, boolean capacitatEmbarAux, int autonomia, int potencia) {
+    public Iots(String marca, double manega, double eslora, double calat, double preu, String nomModel, boolean enVenta, int nombreCamarots, boolean capacitatEmbarAux, int autonomia, int potencia) throws LimitCaracterString {
         contador++;
-        id=contador;
+        id = contador;
         this.marca = marca;
         this.manega = manega;
         this.eslora = eslora;
@@ -21,6 +23,10 @@ public class Iots extends Model {
         this.capacitatEmbarAux = capacitatEmbarAux;
         this.autonomia = autonomia;
         this.potencia = potencia;
+
+        if (marca.length() > 30 || nomModel.length() > 30) {
+            throw new LimitCaracterString("S'han introduit mes de 30 caracters.");
+        }
     }
 
     public int getNombreCamarots() {
@@ -54,12 +60,9 @@ public class Iots extends Model {
     public void setPotencia(int potencia) {
         this.potencia = potencia;
     }
-    
+
     public String toString() {
         return "Iots{" + "marca=" + marca + ", manega=" + manega + ", eslora=" + eslora + ", calat=" + calat + ", preu=" + preu + ", nomModel=" + nomModel + ", enVenta=" + enVenta + " ,nombreCamarots=" + nombreCamarots + ", capacitatEmbarAux=" + capacitatEmbarAux + ", autonomia=" + autonomia + ", potencia=" + potencia + "}\n";
     }
 
-    
-
-    
 }

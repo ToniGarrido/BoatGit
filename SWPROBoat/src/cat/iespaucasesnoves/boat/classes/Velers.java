@@ -1,12 +1,14 @@
 package cat.iespaucasesnoves.boat.classes;
 
+import cat.iespaucasesnoves.boat.excepcions.LimitCaracterString;
+
 public class Velers extends Model {
 
     private int nombreCascs;
     private int nomnbrePals;
     private int nombreCabines;
 
-    public Velers(String marca, double manega, double eslora, double calat, double preu, String nomModel, boolean enVenta, int nombreCascs, int nomnbrePals, int nombreCabines) {
+    public Velers(String marca, double manega, double eslora, double calat, double preu, String nomModel, boolean enVenta, int nombreCascs, int nomnbrePals, int nombreCabines) throws LimitCaracterString {
         contador++;
         id = contador;
 
@@ -20,6 +22,10 @@ public class Velers extends Model {
         this.nombreCascs = nombreCascs;
         this.nomnbrePals = nomnbrePals;
         this.nombreCabines = nombreCabines;
+        
+        if (marca.length() > 30 || nomModel.length() > 30) {
+            throw new LimitCaracterString("S'han introduit mes de 30 caracters.");
+        }
     }
 
     public int getNombreCascs() {

@@ -1,6 +1,7 @@
 package cat.iespaucasesnoves.boat.classes;
 
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
+import cat.iespaucasesnoves.boat.excepcions.NoHiEsLlista;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -30,6 +31,43 @@ public class Empresa {
         llistaClients = new HashMap();
     }
 
+    public String getNom() {
+        return nom;
+    }
+
+    public ArrayList<Patro> getLlistaPatrons() {
+        return llistaPatrons;
+    }
+
+    public HashMap<Integer, Reparacio> getLlistaReparacions() {
+        return llistaReparacions;
+    }
+
+    public HashMap<Integer, Empleat> getLlistaEmpleats() {
+        return llistaEmpleats;
+    }
+
+    public HashMap<Integer, Lloguer> getLlistaLloguers() {
+        return llistaLloguers;
+    }
+
+    public HashMap<Integer, Model> getLlistaModel() {
+        return llistaModel;
+    }
+
+    public HashMap<Integer, Venda> getLlistaVendes() {
+        return llistaVendes;
+    }
+
+    public HashMap<Integer, Vaixell> getLlistaVaixells() {
+        return llistaVaixells;
+    }
+
+    public HashMap<Integer, Client> getLlistaClients() {
+        return llistaClients;
+    }
+
+    
     public void afegirReparacio(Reparacio reparacio) {
         llistaReparacions.put(reparacio.getId(), reparacio);
     }
@@ -141,22 +179,20 @@ public class Empresa {
 
     public Empleat ferNomina(EmpleatComercial empleat) {
         double total = 0;
-        double suma  =0;
+        double suma = 0;
         for (Entry<Integer, Venda> d : llistaVendes.entrySet()) {
             Venda ve = d.getValue();
 
             if (ve.getEmpleat().equals(empleat)) {
-                suma= ve.getPreu() * empleat.getPercentatgeComissio();
-                suma= suma / 100;
+                suma = ve.getPreu() * empleat.getPercentatgeComissio();
+                suma = suma / 100;
 
                 total = suma + total;
             }
-            
-            
 
         }
-        
-        empleat.setSou(empleat.getSou()+total);
+
+        empleat.setSou(empleat.getSou() + total);
         return empleat;
     }
 
@@ -178,47 +214,53 @@ public class Empresa {
         }
     }
 
-    public void eliminarPatro(Patro patro) {
+    public void eliminarPatro(Patro patro) throws NoHiEsLlista {
         for (Patro cont : llistaPatrons) {
             if (cont == patro) {
                 llistaPatrons.remove(patro);
-            } else {/*tirar Excepcio */
+            } else {
+                throw new NoHiEsLlista("No s'ha eliminat el patró, perque no s'ha trobat a la llista.");
             }
         }
     }
 
-    public void eliminarReparacio(Reparacio reparacio) {
+    public void eliminarReparacio(Reparacio reparacio) throws NoHiEsLlista {
         if (llistaReparacions.containsValue(reparacio)) {
             llistaReparacions.remove(reparacio.getId());
-        } else {/*tirar Excepcio */
+        } else {
+            throw new NoHiEsLlista("No s'ha eliminat la reparació, perque no s'ha trobat a la llista.");
         }
     }
 
-    public void eliminarEmpleat(Empleat empleat) {
+    public void eliminarEmpleat(Empleat empleat) throws NoHiEsLlista {
         if (llistaEmpleats.containsValue(empleat)) {
             llistaEmpleats.remove(empleat.getId());
-        } else {/*tirar Excepcio */
+        } else {
+            throw new NoHiEsLlista("No s'ha eliminat l'empleat, perque no s'ha trobat a la llista.");
         }
     }
 
-    public void eliminarLloguer(Lloguer lloguer) {
+    public void eliminarLloguer(Lloguer lloguer) throws NoHiEsLlista {
         if (llistaLloguers.containsValue(lloguer)) {
             llistaLloguers.remove(lloguer.getId());
-        } else {/*tirar Excepcio */
+        } else {
+            throw new NoHiEsLlista("No s'ha eliminat el lloguer, perque no s'ha trobat a la llista.");
         }
     }
 
-    public void eliminarModel(Model model) {
+    public void eliminarModel(Model model) throws NoHiEsLlista {
         if (llistaModel.containsValue(model)) {
             llistaModel.remove(model.getId());
-        } else {/*tirar Excepcio */
+        } else {
+            throw new NoHiEsLlista("No s'ha eliminat el model, perque no s'ha trobat a la llista.");
         }
     }
 
-    public void eliminarClient(Client client) {
+    public void eliminarClient(Client client) throws NoHiEsLlista {
         if (llistaClients.containsValue(client)) {
             llistaClients.remove(client.getId());
-        } else {/*tirar Excepcio */
+        } else {
+            throw new NoHiEsLlista("No s'ha eliminat el client, perque no s'ha trobat a la llista.");
         }
     }
 

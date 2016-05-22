@@ -1,5 +1,7 @@
 package cat.iespaucasesnoves.boat.classes;
 
+import cat.iespaucasesnoves.boat.excepcions.LimitNumeroTargeta;
+
 public class Pagament {
 
     private String comptaCorrent;
@@ -12,11 +14,15 @@ public class Pagament {
         this.comptaCorrent = comptaCorrent;
     }
 
-    public Pagament(String numero, int mes, int any, int codiVerificacio) {
+    public Pagament(String numero, int mes, int any, int codiVerificacio) throws LimitNumeroTargeta {
         this.numero = numero;
         this.mes = mes;
         this.any = any;
         this.codiVerificacio = codiVerificacio;
+        
+        if(numero.length()!=16){
+            throw new LimitNumeroTargeta("El numero de targeta ha de contenir 16 caràcters.");
+        }
     }
 
     public String getComptaCorrent() {
