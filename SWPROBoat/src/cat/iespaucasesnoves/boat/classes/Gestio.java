@@ -18,7 +18,7 @@ import java.util.Date;
 
 public class Gestio {
 
-    public void inicialitzacio(Empresa empresa) {
+    public void inicialitzacio(Empresa empresa, String ruta) {
 
         Date data1 = new Date();
 
@@ -81,7 +81,7 @@ public class Gestio {
         Vaixell vaixell06 = new Vaixell(veler02, "78902398", false);
 
         Reparacio reparacio01 = new Reparacio("Taller", data1, data1, "Te romput el motor", 56.4, EnumEstat.DISPONIBLE, "L'hi hem hagut de canviar una peça mes", vaixell01);
-        Reparacio reparacio02 = new Reparacio("Port", data1, data1, "S'ha romput una vela", 45.7, EnumEstat.DISPONIBLE, "", vaixell02);
+        Reparacio reparacio02 = new Reparacio("Port", data1, data1, "S'ha romput una vela", 45.7, EnumEstat.DISPONIBLE, "L'hi hem hagut de canviar ls cabina.", vaixell02);
         Reparacio reparacio03 = new Reparacio("Taller", data1, data1, "L'havien de pintar", 60.85, EnumEstat.NODISPONIBLE, "L'hi hem hagut de canviar una peça mes", vaixell03);
         Reparacio reparacio04 = new Reparacio("Taller", data1, data1, "L'han de pulir", 98.4, EnumEstat.ENUS, "L'hi hem hagut de canviar una peça mes", vaixell04);
         Reparacio reparacio05 = new Reparacio("Taller", data1, data1, "Se l'hi ha fus es llum", 69.5, EnumEstat.ENUS, "L'hi hem hagut de canviar una peça mes", vaixell04);
@@ -223,9 +223,21 @@ public class Gestio {
         empleatRe06.afegirHabilitat(EnumHabilitats.ELECTRICITAT);
         empleatRe06.afegirHabilitat(EnumHabilitats.FUSTERIA);
 
+        // Per provar aquest ,s'ha d'executar desde inicialitzador perque si no , no pot agafar l'objete per argument.
+        System.out.println("**REPARACIONS D'UN VAXIELL EN CONCRET**");
+        System.out.println(empresa.llistarRepaVaixell(vaixell03));
+
+        try {
+            generarFitxer(ruta, empresa);
+        } catch (IOException ex) {
+            System.out.println("El fitxer no es valid");
+        }
+
     }
 
     public void provesEmpresa(Empresa empresa) {
+
+        Velers veler07 = new Velers("Jeanneau", 56.9, 98.6, 97.6, 25999, "Jane ", false, 59, 820, 189);
 
         System.out.println("**MODELS DISPONIBLES**");
         System.out.println(empresa.llistarMoDisponibles());
@@ -239,14 +251,10 @@ public class Gestio {
         System.out.println("**REPARACIONS PENDENTS");
         System.out.println(empresa.llistarRepaPendent());
 
-        /*Els dos seguents s'han de provar desde el mètode iniciatlització
-        perque si no, no poden trobar els objectes que necessiten els seus paràmetres
-        System.out.println("**REPARACIONS D'UN VAXIELL EN CONCRET**");
-        System.out.println(empresa.llistarRepaVaixell(vaixell03));
-
         System.out.println("**LLISTAR PER UN TIPUS D'EMBARCACIÓ");
-        System.out.println(empresa.llistarTipusEmb(motora01));*/
- /*Aquest fins que no mirem lo de ses dates no va be
+        System.out.println(empresa.llistarTipusEmb(veler07));
+
+        /*Aquest fins que no mirem lo de ses dates no va be
         System.Out.println("**LLISTAR PER UN INTERVAL DE DATES");
         System.out.println(empresa.llistarVaixellDispData(,));*/
     }
@@ -256,20 +264,40 @@ public class Gestio {
             out.writeObject(empr);
         }
     }
+// no va be
+    public Empresa llegirFitxer(String ruta) throws FileNotFoundException, IOException, ClassNotFoundException {
+        Object empresa = null;
+        try (ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(ruta)))) {
 
-    public void llegirFitxer(String origen) throws FileNotFoundException, IOException {
-        try (ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(origen)))) {
+            empresa =  in.readObject();
+            
+            in.close();
         }
+        
+        return (Empresa) empresa;
 
     }
 
     public static void main(String[] Args) {
+        try {
+            Gestio gestio = new Gestio();
 
-        Gestio gestio = new Gestio();
+            //Empresa empresa = new Empresa("Boat");
+            String ruta = "C:\\Users\\Toni\\Documents\\NetBeansProjects\\nou\\prova\\SWPROBoat\\GuardarObjecte.txt";
 
-        Empresa empresa = new Empresa("Boat");
+           // gestio.inicialitzacio(empresa, ruta);
+            
+            
+            Empresa pep = gestio.llegirFitxer(ruta);
 
-        gestio.inicialitzacio(empresa);
-        gestio.provesEmpresa(empresa);
+            gestio.provesEmpresa(pep);
+            
+            
+        } catch (IOException ex) {
+
+        } catch (ClassNotFoundException e) {
+
+        }
+
     }
 }
