@@ -2,12 +2,13 @@ package cat.iespaucasesnoves.boat.classes;
 
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
 import cat.iespaucasesnoves.boat.excepcions.NoHiEsLlista;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-public class Empresa {
+public class Empresa implements Serializable {
 
     private String nom;
     private ArrayList<Patro> llistaPatrons;

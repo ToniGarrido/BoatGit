@@ -2,9 +2,10 @@ package cat.iespaucasesnoves.boat.classes;
 
 
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Venda {
+public class Venda implements Serializable {
 
     private static int contador =0;
     private int id;

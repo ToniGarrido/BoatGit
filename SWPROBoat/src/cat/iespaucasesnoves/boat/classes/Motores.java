@@ -1,8 +1,9 @@
 package cat.iespaucasesnoves.boat.classes;
 
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterString;
+import java.io.Serializable;
 
-public class Motores extends Model {
+public class Motores extends Model implements Serializable {
 
     private boolean motorAux;
     private int capacitatDeposit;

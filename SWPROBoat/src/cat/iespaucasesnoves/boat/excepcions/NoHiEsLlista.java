@@ -9,7 +9,7 @@ package cat.iespaucasesnoves.boat.excepcions;
  *
  * @author Toni
  */
-public class NoHiEsLlista extends Exception {
+public class NoHiEsLlista extends Exception  {
     
     public NoHiEsLlista(){
         super();

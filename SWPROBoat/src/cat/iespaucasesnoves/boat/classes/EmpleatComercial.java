@@ -3,10 +3,11 @@ package cat.iespaucasesnoves.boat.classes;
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterDocument;
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterString;
 import cat.iespaucasesnoves.boat.excepcions.LimitDeDocuments;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
-public class EmpleatComercial extends Empleat {
+public class EmpleatComercial extends Empleat implements Serializable {
 
     private int percentatgeComissio;
 

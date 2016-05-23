@@ -4,10 +4,11 @@ import cat.iespaucasesnoves.boat.enumeracions.EnumHabilitats;
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterDocument;
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterString;
 import cat.iespaucasesnoves.boat.excepcions.LimitDeDocuments;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class EmpleatReparacio extends Empleat {
+public class EmpleatReparacio extends Empleat implements Serializable {
 
     private ArrayList<EnumHabilitats> llistaHabilitats;
 

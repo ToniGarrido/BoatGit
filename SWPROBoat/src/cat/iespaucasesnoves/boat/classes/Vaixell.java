@@ -1,6 +1,8 @@
 package cat.iespaucasesnoves.boat.classes;
 
-public class Vaixell {
+import java.io.Serializable;
+
+public class Vaixell implements Serializable {
 
     private static int contador = 0;
     private int id;

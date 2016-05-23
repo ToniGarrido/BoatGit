@@ -1,6 +1,8 @@
 package cat.iespaucasesnoves.boat.classes;
 
-public class Persona {
+import java.io.Serializable;
+
+public class Persona implements Serializable {
 
     protected static int contador =0;
     protected int id;

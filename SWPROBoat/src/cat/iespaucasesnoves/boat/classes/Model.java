@@ -1,6 +1,8 @@
 package cat.iespaucasesnoves.boat.classes;
 
-public class Model {
+import java.io.Serializable;
+
+public class Model implements Serializable {
 
     protected static int contador = 0;
     protected int id;

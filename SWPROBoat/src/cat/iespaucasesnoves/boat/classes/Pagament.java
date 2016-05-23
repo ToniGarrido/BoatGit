@@ -1,8 +1,9 @@
 package cat.iespaucasesnoves.boat.classes;
 
 import cat.iespaucasesnoves.boat.excepcions.LimitNumeroTargeta;
+import java.io.Serializable;
 
-public class Pagament {
+public class Pagament implements Serializable{
 
     private String comptaCorrent;
     private String numero;

@@ -1,8 +1,9 @@
 package cat.iespaucasesnoves.boat.classes;
 
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterString;
+import java.io.Serializable;
 
-public class Velers extends Model {
+public class Velers extends Model implements Serializable{
 
     private int nombreCascs;
     private int nomnbrePals;

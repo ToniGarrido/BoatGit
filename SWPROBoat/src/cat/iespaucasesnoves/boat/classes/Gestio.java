@@ -48,8 +48,6 @@ public class Gestio {
             Date data19 = sdf.parse("2006-05-19");
             Date data20 = sdf.parse("2006-05-20");
 
-            System.out.println(data1.compareTo(data2));
-
             Pagament pagament01 = new Pagament("52684515612");
             Pagament pagament02 = new Pagament("78919518456");
             Pagament pagament03 = new Pagament("1234567891234566", 05, 18, 940);
@@ -258,13 +256,13 @@ public class Gestio {
             // Per provar aquest ,s'ha d'executar desde inicialitzador perque si no , no pot agafar l'objete per argument.
             System.out.println("**REPARACIONS D'UN VAXIELL EN CONCRET**");
             System.out.println(empresa.llistarRepaVaixell(vaixell03));
-            
-            System.out.println("**LLISTAR PER UN INTERVAL DE DATES");
-            System.out.println(empresa.llistarVaixellDispData(data3,data20));
 
-            /*generarFitxer(ruta, empresa);
+            System.out.println("**LLISTAR PER UN INTERVAL DE DATES");
+            System.out.println(empresa.llistarVaixellDispData(data3, data20));
+
+            generarFitxer(ruta, empresa);
         } catch (IOException ex) {
-            System.out.println("El fitxer no es valid");*/
+            System.out.println("El fitxer no es valid");
         } catch (LimitCaracterString ex) {
 
             System.out.println(ex.getMessage());
@@ -317,7 +315,6 @@ public class Gestio {
             out.writeObject(empr);
         }
     }
-// no va be
 
     public Empresa llegirFitxer(String ruta) throws FileNotFoundException, IOException, ClassNotFoundException {
         Object empresa = null;
@@ -332,16 +329,17 @@ public class Gestio {
 
     }
 
-    public static void main(String[] Args) {
+    public static void main(String[] Args) throws ClassNotFoundException, IOException {
 
         Gestio gestio = new Gestio();
 
-        Empresa empresa = new Empresa("Boat");
-        String ruta = "C:\\Users\\Toni\\Documents\\NetBeansProjects\\nou\\prova\\SWPROBoat\\GuardarObjecte.txt";
-
-        gestio.inicialitzacio(empresa, ruta);
+        //Empresa empresa = new Empresa("Boat");
+        String ruta = "GuardarObjecte\\GuardarObjecte.txt"; // Parteix de la carpeta del projecte.
+        Empresa empresa = gestio.llegirFitxer(ruta);
+        //gestio.inicialitzacio(empresa, ruta);
 
         gestio.provesEmpresa(empresa);
+        
 
     }
 }

@@ -3,8 +3,9 @@ package cat.iespaucasesnoves.boat.classes;
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterDocument;
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterString;
 import cat.iespaucasesnoves.boat.excepcions.LimitDeDocuments;
+import java.io.Serializable;
 
-public class Patro extends Persona {
+public class Patro extends Persona implements Serializable {
 
     private String titulacio;
     private double costServei;
