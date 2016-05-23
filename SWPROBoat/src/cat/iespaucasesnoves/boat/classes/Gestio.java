@@ -15,6 +15,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Gestio {
@@ -22,7 +24,31 @@ public class Gestio {
     public void inicialitzacio(Empresa empresa, String ruta) {
 
         try {
-            Date data1 = new Date();
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+            Date data1 = sdf.parse("2006-05-01");
+            Date data2 = sdf.parse("2006-05-02");
+            Date data3 = sdf.parse("2006-05-03");
+            Date data4 = sdf.parse("2006-05-04");
+            Date data5 = sdf.parse("2006-05-05");
+            Date data6 = sdf.parse("2006-05-06");
+            Date data7 = sdf.parse("2006-05-07");
+            Date data8 = sdf.parse("2006-05-08");
+            Date data9 = sdf.parse("2006-05-09");
+            Date data10 = sdf.parse("2006-05-10");
+            Date data11 = sdf.parse("2006-05-11");
+            Date data12 = sdf.parse("2008-05-12");
+            Date data13 = sdf.parse("2006-05-13");
+            Date data14 = sdf.parse("2006-05-14");
+            Date data15 = sdf.parse("2006-05-15");
+            Date data16 = sdf.parse("2006-05-16");
+            Date data17 = sdf.parse("2006-05-17");
+            Date data18 = sdf.parse("2006-05-18");
+            Date data19 = sdf.parse("2006-05-19");
+            Date data20 = sdf.parse("2006-05-20");
+
+            System.out.println(data1.compareTo(data2));
 
             Pagament pagament01 = new Pagament("52684515612");
             Pagament pagament02 = new Pagament("78919518456");
@@ -41,18 +67,18 @@ public class Gestio {
             Patro patro03 = new Patro("Jaume", "Gonzalez", false, false, true, "951974965", "Mallorca 41", 971010298, "jaume@hotmail.com", "Patro de navegació bàsica", 85.25);
 
             EmpleatComercial empleatCo01 = new EmpleatComercial("Jaume", "Camilla", false, true, false, "78945612P", "Colomer 85", 971746352, "jaume3@hotmail.com", data1, 1300, 12);
-            EmpleatComercial empleatCo02 = new EmpleatComercial("Miquel", "Taula", false, true, false, "98708967M", "Lluna 45", 971746352, "miquel1@hotmail.com", data1, 1200, 10);
-            EmpleatComercial empleatCo03 = new EmpleatComercial("Rafel", "Piña", false, true, false, "45615935P", "Menor 47", 971746352, "rafele@hotmail.com", data1, 1450, 15);
-            EmpleatComercial empleatCo04 = new EmpleatComercial("Antonia", "Ferragut", false, true, false, "98730944L", "Pagat 75", 971746352, "antonia1@hotmail.com", data1, 1370, 17);
-            EmpleatComercial empleatCo05 = new EmpleatComercial("Pep", "Sipi", false, true, false, "98756157K", "Cadira 15", 971746352, "pep@hotmail.com", data1, 1600, 14);
-            EmpleatComercial empleatCo06 = new EmpleatComercial("Joan", "Perello", false, true, false, "75354749G", "Rey Carles 98", 971746352, "joan33@hotmail.com", data1, 1420, 11);
+            EmpleatComercial empleatCo02 = new EmpleatComercial("Miquel", "Taula", false, true, false, "98708967M", "Lluna 45", 971746352, "miquel1@hotmail.com", data2, 1200, 10);
+            EmpleatComercial empleatCo03 = new EmpleatComercial("Rafel", "Piña", false, true, false, "45615935P", "Menor 47", 971746352, "rafele@hotmail.com", data3, 1450, 15);
+            EmpleatComercial empleatCo04 = new EmpleatComercial("Antonia", "Ferragut", false, true, false, "98730944L", "Pagat 75", 971746352, "antonia1@hotmail.com", data4, 1370, 17);
+            EmpleatComercial empleatCo05 = new EmpleatComercial("Pep", "Sipi", false, true, false, "98756157K", "Cadira 15", 971746352, "pep@hotmail.com", data5, 1600, 14);
+            EmpleatComercial empleatCo06 = new EmpleatComercial("Joan", "Perello", false, true, false, "75354749G", "Rey Carles 98", 971746352, "joan33@hotmail.com", data6, 1420, 11);
 
-            EmpleatReparacio empleatRe01 = new EmpleatReparacio("Miquela", "Segui", false, true, false, "78906419I", "Eina 19", 971746352, "miquela@hotmail.com", data1, 1200);
-            EmpleatReparacio empleatRe02 = new EmpleatReparacio("Sebastia", "Serra", false, true, false, "089045567", "Taula 17", 971746352, "sebastia2@hotmail.com", data1, 1300);
-            EmpleatReparacio empleatRe03 = new EmpleatReparacio("Aina", "Trias", false, true, false, "14736925H", "Finestra 89", 971746352, "aina1@hotmail.com", data1, 1380);
-            EmpleatReparacio empleatRe04 = new EmpleatReparacio("Joan", "Camilla", false, true, false, "65098078H", "Pantalla 78", 971746352, "joan56@hotmail.com", data1, 1020);
-            EmpleatReparacio empleatRe05 = new EmpleatReparacio("Andreu", "Perico", false, true, false, "32912803A", "Lauar 12", 971746352, "andreu@hotmail.com", data1, 1450);
-            EmpleatReparacio empleatRe06 = new EmpleatReparacio("Toni", "Cantallops", false, true, false, "456093098", "Ripoll 46", 971746352, "toni45@hotmail.com", data1, 1250);
+            EmpleatReparacio empleatRe01 = new EmpleatReparacio("Miquela", "Segui", false, true, false, "78906419I", "Eina 19", 971746352, "miquela@hotmail.com", data7, 1200);
+            EmpleatReparacio empleatRe02 = new EmpleatReparacio("Sebastia", "Serra", false, true, false, "089045567", "Taula 17", 971746352, "sebastia2@hotmail.com", data8, 1300);
+            EmpleatReparacio empleatRe03 = new EmpleatReparacio("Aina", "Trias", false, true, false, "14736925H", "Finestra 89", 971746352, "aina1@hotmail.com", data9, 1380);
+            EmpleatReparacio empleatRe04 = new EmpleatReparacio("Joan", "Camilla", false, true, false, "65098078H", "Pantalla 78", 971746352, "joan56@hotmail.com", data10, 1020);
+            EmpleatReparacio empleatRe05 = new EmpleatReparacio("Andreu", "Perico", false, true, false, "32912803A", "Lauar 12", 971746352, "andreu@hotmail.com", data11, 1450);
+            EmpleatReparacio empleatRe06 = new EmpleatReparacio("Toni", "Cantallops", false, true, false, "456093098", "Ripoll 46", 971746352, "toni45@hotmail.com", data12, 1250);
 
             Iots iot01 = new Iots("Toyota", 70.5, 50.8, 40.7, 80000, "Pacific", true, 5, true, 500, 150);
             Iots iot02 = new Iots("Renault", 80.6, 78.1, 56.2, 90000, "El Mari", false, 6, true, 600, 190);
@@ -82,26 +108,26 @@ public class Gestio {
             Vaixell vaixell05 = new Vaixell(motora02, "654159780", true, 15.4);
             Vaixell vaixell06 = new Vaixell(veler02, "78902398", false);
 
-            Reparacio reparacio01 = new Reparacio("Taller", data1, data1, "Te romput el motor", 56.4, EnumEstat.DISPONIBLE, "L'hi hem hagut de canviar una peça mes", vaixell01);
-            Reparacio reparacio02 = new Reparacio("Port", data1, data1, "S'ha romput una vela", 45.7, EnumEstat.DISPONIBLE, "L'hi hem hagut de canviar ls cabina.", vaixell02);
-            Reparacio reparacio03 = new Reparacio("Taller", data1, data1, "L'havien de pintar", 60.85, EnumEstat.NODISPONIBLE, "L'hi hem hagut de canviar una peça mes", vaixell03);
-            Reparacio reparacio04 = new Reparacio("Taller", data1, data1, "L'han de pulir", 98.4, EnumEstat.ENUS, "L'hi hem hagut de canviar una peça mes", vaixell04);
-            Reparacio reparacio05 = new Reparacio("Taller", data1, data1, "Se l'hi ha fus es llum", 69.5, EnumEstat.ENUS, "L'hi hem hagut de canviar una peça mes", vaixell04);
-            Reparacio reparacio06 = new Reparacio("Taller", data1, data1, "S'ha de calibrar el motor", 78.5, EnumEstat.ENUS, "L'hi hem hagut de canviar una peça mes", vaixell03);
+            Reparacio reparacio01 = new Reparacio("Taller", data13, data14, "Te romput el motor", 56.4, EnumEstat.DISPONIBLE, "L'hi hem hagut de canviar una peça mes", vaixell01);
+            Reparacio reparacio02 = new Reparacio("Port", data15, data16, "S'ha romput una vela", 45.7, EnumEstat.DISPONIBLE, "L'hi hem hagut de canviar ls cabina.", vaixell02);
+            Reparacio reparacio03 = new Reparacio("Taller", data17, data18, "L'havien de pintar", 60.85, EnumEstat.NODISPONIBLE, "L'hi hem hagut de canviar una peça mes", vaixell03);
+            Reparacio reparacio04 = new Reparacio("Taller", data19, data20, "L'han de pulir", 98.4, EnumEstat.ENUS, "L'hi hem hagut de canviar una peça mes", vaixell04);
+            Reparacio reparacio05 = new Reparacio("Taller", data1, data2, "Se l'hi ha fus es llum", 69.5, EnumEstat.ENUS, "L'hi hem hagut de canviar una peça mes", vaixell04);
+            Reparacio reparacio06 = new Reparacio("Taller", data3, data4, "S'ha de calibrar el motor", 78.5, EnumEstat.ENUS, "L'hi hem hagut de canviar una peça mes", vaixell03);
 
-            Venda venda01 = new Venda(client03, vaixell01, data1, EnumEstat.DISPONIBLE, empleatCo01);
-            Venda venda02 = new Venda(client02, vaixell02, data1, EnumEstat.ENUS, empleatCo02);
-            Venda venda03 = new Venda(client01, vaixell03, data1, EnumEstat.DISPONIBLE, empleatCo01);
-            Venda venda04 = new Venda(client04, vaixell04, data1, EnumEstat.NODISPONIBLE, empleatCo03);
-            Venda venda05 = new Venda(client05, vaixell05, data1, EnumEstat.DISPONIBLE, empleatCo03);
-            Venda venda06 = new Venda(client06, vaixell06, data1, EnumEstat.NODISPONIBLE, empleatCo03);
+            Venda venda01 = new Venda(client03, vaixell01, data5, EnumEstat.DISPONIBLE, empleatCo01);
+            Venda venda02 = new Venda(client02, vaixell02, data6, EnumEstat.ENUS, empleatCo02);
+            Venda venda03 = new Venda(client01, vaixell03, data7, EnumEstat.DISPONIBLE, empleatCo01);
+            Venda venda04 = new Venda(client04, vaixell04, data8, EnumEstat.NODISPONIBLE, empleatCo03);
+            Venda venda05 = new Venda(client05, vaixell05, data9, EnumEstat.DISPONIBLE, empleatCo03);
+            Venda venda06 = new Venda(client06, vaixell06, data10, EnumEstat.NODISPONIBLE, empleatCo03);
 
-            Lloguer lloguer01 = new Lloguer(true, patro01, data1, data1, client03, EnumEstat.DISPONIBLE, vaixell06);
-            Lloguer lloguer02 = new Lloguer(false, data1, data1, client04, EnumEstat.NODISPONIBLE, vaixell05);
-            Lloguer lloguer03 = new Lloguer(true, patro02, data1, data1, client01, EnumEstat.ENUS, vaixell04);
-            Lloguer lloguer04 = new Lloguer(false, data1, data1, client02, EnumEstat.ENUS, vaixell02);
-            Lloguer lloguer05 = new Lloguer(false, data1, data1, client05, EnumEstat.DISPONIBLE, vaixell01);
-            Lloguer lloguer06 = new Lloguer(true, patro03, data1, data1, client06, EnumEstat.NODISPONIBLE, vaixell03);
+            Lloguer lloguer01 = new Lloguer(true, patro01, data1, data2, client03, EnumEstat.DISPONIBLE, vaixell06);
+            Lloguer lloguer02 = new Lloguer(false, data1, data2, client04, EnumEstat.DISPONIBLE, vaixell05);
+            Lloguer lloguer03 = new Lloguer(true, patro02, data1, data2, client01, EnumEstat.DISPONIBLE, vaixell04);
+            Lloguer lloguer04 = new Lloguer(false, data1, data2, client02, EnumEstat.DISPONIBLE, vaixell02);
+            Lloguer lloguer05 = new Lloguer(false, data1, data2, client05, EnumEstat.DISPONIBLE, vaixell01);
+            Lloguer lloguer06 = new Lloguer(true, patro02, data1, data2, client06, EnumEstat.DISPONIBLE, vaixell03);
 
             empresa.afegirClient(client01);
             empresa.afegirClient(client02);
@@ -224,31 +250,43 @@ public class Gestio {
             empleatRe06.afegirHabilitat(EnumHabilitats.MECANICA);
             empleatRe06.afegirHabilitat(EnumHabilitats.ELECTRICITAT);
             empleatRe06.afegirHabilitat(EnumHabilitats.FUSTERIA);
-            
+
             empresa.eliminarClient(client06);
-            
-            System.out.println(empresa.getLlistaClients());
+
+            System.out.println(empleatCo01.getDataAlta());
 
             // Per provar aquest ,s'ha d'executar desde inicialitzador perque si no , no pot agafar l'objete per argument.
             System.out.println("**REPARACIONS D'UN VAXIELL EN CONCRET**");
             System.out.println(empresa.llistarRepaVaixell(vaixell03));
+            
+            System.out.println("**LLISTAR PER UN INTERVAL DE DATES");
+            System.out.println(empresa.llistarVaixellDispData(data3,data20));
 
             /*generarFitxer(ruta, empresa);
         } catch (IOException ex) {
             System.out.println("El fitxer no es valid");*/
         } catch (LimitCaracterString ex) {
+
             System.out.println(ex.getMessage());
+
         } catch (LimitCaracterDocument ex) {
+
             System.out.println(ex.getMessage());
 
         } catch (LimitDeDocuments ex) {
+
             System.out.println(ex.getMessage());
+
         } catch (LimitNumeroTargeta ex) {
+
             System.out.println(ex.getMessage());
-        } catch(NoHiEsLlista ex){
+
+        } catch (NoHiEsLlista ex) {
+
             System.out.println(ex.getMessage());
+        } catch (ParseException ex) {
+            System.out.println("Parse");
         }
-        
 
     }
 

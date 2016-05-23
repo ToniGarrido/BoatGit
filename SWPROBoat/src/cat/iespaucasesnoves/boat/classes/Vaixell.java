@@ -74,7 +74,7 @@ public class Vaixell {
 
     @Override
     public String toString() {
-        return "Vaixell{" + "id=" + id + ", model=" + model + ", matricula=" + matricula + ", propietari=" + propietari + ", perLlogar=" + perLlogar + '}';
+        return "Vaixell{" + "id=" + id + ", model=" + model + ", matricula=" + matricula + ", propietari=" + propietari + ", perLlogar=" + perLlogar + "}\n";
     }
 
 }

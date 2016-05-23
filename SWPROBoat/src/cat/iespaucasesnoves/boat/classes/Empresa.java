@@ -67,7 +67,6 @@ public class Empresa {
         return llistaClients;
     }
 
-    
     public void afegirReparacio(Reparacio reparacio) {
         llistaReparacions.put(reparacio.getId(), reparacio);
     }
@@ -204,13 +203,22 @@ public class Empresa {
     public ArrayList<Vaixell> llistarVaixellDispData(Date dataInicial, Date dataFinal) {
 
         ArrayList<Vaixell> vaixellsDisp = new ArrayList();
+        for (Entry<Integer, Lloguer> d : llistaLloguers.entrySet()) {
+            Lloguer re = d.getValue();
+
+            if (re.getDataInicial().compareTo(dataInicial) <= 0 && re.getDataFinal().compareTo(dataFinal) >= 0 && re.getEstatLloger()==EnumEstat.DISPONIBLE) {
+                vaixellsDisp.add(re.getVaixell());
+            }
+
+        }
         return vaixellsDisp;
     }
 
-    public void eliminarVaixell(Vaixell vaixell) {
+    public void eliminarVaixell(Vaixell vaixell) throws NoHiEsLlista {
         if (llistaVaixells.containsValue(vaixell)) {
             llistaVaixells.remove(vaixell.getId());
-        } else {/*tirar Excepcio */
+        } else {
+            throw new NoHiEsLlista("No s'ha eliminat el vaixell, perqué no s'ha trobat a la llista.");
         }
     }
 
