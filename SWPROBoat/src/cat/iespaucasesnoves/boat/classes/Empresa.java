@@ -206,17 +206,17 @@ public class Empresa implements Serializable {
         ArrayList<Vaixell> vaixellsDisp = new ArrayList();
         for (Entry<Integer, Lloguer> d : llistaLloguers.entrySet()) {
             Lloguer re = d.getValue();
-//(dataInicial.before(re.getDataInicial())== true && dataFinal.before(re.getDataInicial())==true) || 
-//(dataInicial.after(re.getDataFinal())==true || dataFinal.after(re.getDataFinal())==true)
-            if ((re.getDataFinal().before(dataInicial)==true && re.getDataFinal().before(dataFinal)==true) || (re.getDataInicial().before(dataInicial) && re.getDataFinal().before(dataInicial))){
+            if ((dataInicial.before(re.getDataInicial()) && dataFinal.before(re.getDataInicial())) == true) {
+                vaixellsDisp.add(re.getVaixell());
+            } 
+            else if ((dataInicial.after(re.getDataFinal()) && dataFinal.after(re.getDataFinal())) == true) {
                 vaixellsDisp.add(re.getVaixell());
             }
-
-        }
-        return vaixellsDisp;
     }
+    return vaixellsDisp ;
+}
 
-    public void eliminarVaixell(Vaixell vaixell) throws NoHiEsLlista {
+public void eliminarVaixell(Vaixell vaixell) throws NoHiEsLlista {
         if (llistaVaixells.containsValue(vaixell)) {
             llistaVaixells.remove(vaixell.getId());
         } else {

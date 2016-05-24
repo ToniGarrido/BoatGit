@@ -38,7 +38,7 @@ public class Gestio {
             Date data9 = sdf.parse("2006-05-09");
             Date data10 = sdf.parse("2006-05-10");
             Date data11 = sdf.parse("2006-05-11");
-            Date data12 = sdf.parse("2008-05-12");
+            Date data12 = sdf.parse("2006-05-12");
             Date data13 = sdf.parse("2006-05-13");
             Date data14 = sdf.parse("2006-05-14");
             Date data15 = sdf.parse("2006-05-15");
@@ -251,7 +251,6 @@ public class Gestio {
 
             empresa.eliminarClient(client06);
             
-            System.out.println(data1.before(data2));
 
 //            System.out.println(empleatCo01.getDataAlta());
 //
@@ -260,7 +259,7 @@ public class Gestio {
 //            System.out.println(empresa.llistarRepaVaixell(vaixell03));
 
             System.out.println("**LLISTAR PER UN INTERVAL DE DATES");
-            System.out.println(empresa.llistarVaixellDispData(data1, data5));
+            System.out.println(empresa.llistarVaixellDispData(data10, data6));
 //            
 //            String json = vaixell01.tornarJSON();
 //            System.out.println(json);
