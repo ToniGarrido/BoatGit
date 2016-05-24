@@ -260,7 +260,7 @@ public class Gestio {
 //            System.out.println(empresa.llistarRepaVaixell(vaixell03));
 
             System.out.println("**LLISTAR PER UN INTERVAL DE DATES");
-            System.out.println(empresa.llistarVaixellDispData(data13, data17));
+            System.out.println(empresa.llistarVaixellDispData(data1, data5));
 //            
 //            String json = vaixell01.tornarJSON();
 //            System.out.println(json);
