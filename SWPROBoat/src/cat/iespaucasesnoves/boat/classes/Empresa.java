@@ -1,6 +1,7 @@
 package cat.iespaucasesnoves.boat.classes;
 
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
+import cat.iespaucasesnoves.boat.excepcions.DataInicialMajor;
 import cat.iespaucasesnoves.boat.excepcions.NoHiEsLlista;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -201,7 +202,11 @@ public class Empresa implements Serializable {
         return empleat;
     }
 
-    public ArrayList<Vaixell> llistarVaixellDispData(Date dataInicial, Date dataFinal) {
+    public ArrayList<Vaixell> llistarVaixellDispData(Date dataInicial, Date dataFinal) throws DataInicialMajor {
+        
+        if(dataInicial.after(dataFinal)){
+            throw new DataInicialMajor("La data inicial no pot ser major a la data final.");
+        }
 
         ArrayList<Vaixell> vaixellsDisp = new ArrayList();
         for (Entry<Integer, Lloguer> d : llistaLloguers.entrySet()) {
