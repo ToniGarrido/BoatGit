@@ -120,12 +120,12 @@ public class Gestio {
             Venda venda05 = new Venda(client05, vaixell05, data9, EnumEstat.DISPONIBLE, empleatCo03);
             Venda venda06 = new Venda(client06, vaixell06, data10, EnumEstat.NODISPONIBLE, empleatCo03);
 
-            Lloguer lloguer01 = new Lloguer(true, patro01, data1, data2, client03, EnumEstat.DISPONIBLE, vaixell06);
-            Lloguer lloguer02 = new Lloguer(false, data1, data2, client04, EnumEstat.DISPONIBLE, vaixell05);
-            Lloguer lloguer03 = new Lloguer(true, patro02, data1, data2, client01, EnumEstat.DISPONIBLE, vaixell04);
-            Lloguer lloguer04 = new Lloguer(false, data1, data2, client02, EnumEstat.DISPONIBLE, vaixell02);
-            Lloguer lloguer05 = new Lloguer(false, data1, data2, client05, EnumEstat.DISPONIBLE, vaixell01);
-            Lloguer lloguer06 = new Lloguer(true, patro02, data1, data2, client06, EnumEstat.DISPONIBLE, vaixell03);
+            Lloguer lloguer01 = new Lloguer(true, patro03, data7, data12, client03, EnumEstat.DISPONIBLE, vaixell06);
+            Lloguer lloguer02 = new Lloguer(false, data7, data12, client04, EnumEstat.DISPONIBLE, vaixell05);
+            Lloguer lloguer03 = new Lloguer(true, patro02, data7, data12, client01, EnumEstat.DISPONIBLE, vaixell04);
+            Lloguer lloguer04 = new Lloguer(false, data7, data12,client02, EnumEstat.DISPONIBLE, vaixell02);
+            Lloguer lloguer05 = new Lloguer(false, data7, data12, client05, EnumEstat.DISPONIBLE, vaixell01);
+            Lloguer lloguer06 = new Lloguer(true, patro02, data7, data12, client06, EnumEstat.DISPONIBLE, vaixell03);
 
             empresa.afegirClient(client01);
             empresa.afegirClient(client02);
@@ -250,19 +250,24 @@ public class Gestio {
             empleatRe06.afegirHabilitat(EnumHabilitats.FUSTERIA);
 
             empresa.eliminarClient(client06);
+            
+            System.out.println(data1.before(data2));
 
-            System.out.println(empleatCo01.getDataAlta());
-
-            // Per provar aquest ,s'ha d'executar desde inicialitzador perque si no , no pot agafar l'objete per argument.
-            System.out.println("**REPARACIONS D'UN VAXIELL EN CONCRET**");
-            System.out.println(empresa.llistarRepaVaixell(vaixell03));
+//            System.out.println(empleatCo01.getDataAlta());
+//
+//            // Per provar aquest ,s'ha d'executar desde inicialitzador perque si no , no pot agafar l'objete per argument.
+//            System.out.println("**REPARACIONS D'UN VAXIELL EN CONCRET**");
+//            System.out.println(empresa.llistarRepaVaixell(vaixell03));
 
             System.out.println("**LLISTAR PER UN INTERVAL DE DATES");
-            System.out.println(empresa.llistarVaixellDispData(data3, data20));
-
-            generarFitxer(ruta, empresa);
-        } catch (IOException ex) {
-            System.out.println("El fitxer no es valid");
+            System.out.println(empresa.llistarVaixellDispData(data13, data17));
+//            
+//            String json = vaixell01.tornarJSON();
+//            System.out.println(json);
+//
+//            generarFitxer(ruta, empresa);
+//        } catch (IOException ex) {
+//            System.out.println("El fitxer no es valid");
         } catch (LimitCaracterString ex) {
 
             System.out.println(ex.getMessage());
@@ -333,12 +338,12 @@ public class Gestio {
 
         Gestio gestio = new Gestio();
 
-        //Empresa empresa = new Empresa("Boat");
+        Empresa empresa = new Empresa("Boat");
         String ruta = "GuardarObjecte\\GuardarObjecte.txt"; // Parteix de la carpeta del projecte.
-        Empresa empresa = gestio.llegirFitxer(ruta);
-        //gestio.inicialitzacio(empresa, ruta);
+        //Empresa empresa = gestio.llegirFitxer(ruta);
+        gestio.inicialitzacio(empresa, ruta);
 
-        gestio.provesEmpresa(empresa);
+        //gestio.provesEmpresa(empresa);
         
 
     }

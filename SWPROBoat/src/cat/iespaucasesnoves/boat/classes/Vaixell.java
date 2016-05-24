@@ -18,9 +18,9 @@ public class Vaixell implements Serializable {
         this.model = model;
         this.matricula = matricula;
         this.perLlogar = perLlogar;
-        
+
     }
-    
+
     public Vaixell(Model model, String matricula, boolean perLlogar, double preuPerDia) {
         contador++;
         id = contador;
@@ -30,8 +30,11 @@ public class Vaixell implements Serializable {
         this.preuPerDia = preuPerDia;
     }
 
-    public void tornarJSON() {
+    public String tornarJSON() {
 
+        String json = "{" + "\"Id\": " + id +  "," + "\"NomModel\": " + "\"" + model.nomModel  + "," + "\"Matricula\": " + "\"" + matricula + "\""  + ","  + "\"PerLlogar\": " + perLlogar  + "," + "\"PerLlogar\": " + perLlogar + "}";
+
+        return json;
     }
 
     public int getId() {

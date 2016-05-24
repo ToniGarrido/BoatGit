@@ -207,7 +207,7 @@ public class Empresa implements Serializable {
         for (Entry<Integer, Lloguer> d : llistaLloguers.entrySet()) {
             Lloguer re = d.getValue();
 
-            if (re.getDataInicial().compareTo(dataInicial) <= 0 && re.getDataFinal().compareTo(dataFinal) >= 0 && re.getEstatLloger()==EnumEstat.DISPONIBLE) {
+            if ((re.getDataInicial().after(dataFinal) == true || re.getDataFinal().before(dataInicial) == true ) && (re.getDataInicial().before(dataInicial)==true)) {
                 vaixellsDisp.add(re.getVaixell());
             }
 
