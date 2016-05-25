@@ -16,6 +16,8 @@ public class Persona implements Serializable {
     protected int telefon;
     protected String email;
 
+    //Modificació de la classe
+    
     public int getId() {
         return id;
     }
