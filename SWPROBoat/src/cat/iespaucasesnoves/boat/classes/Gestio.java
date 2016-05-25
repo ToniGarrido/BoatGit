@@ -9,6 +9,7 @@ import cat.iespaucasesnoves.boat.excepcions.LimitCaracterString;
 import cat.iespaucasesnoves.boat.excepcions.LimitDeDocuments;
 import cat.iespaucasesnoves.boat.excepcions.LimitNumeroTargeta;
 import cat.iespaucasesnoves.boat.excepcions.NoHiEsLlista;
+import cat.iespaucasesnoves.boat.excepcions.PatroException;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
@@ -20,6 +21,8 @@ import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Gestio {
 
@@ -87,7 +90,7 @@ public class Gestio {
             Iots iot05 = new Iots("Volkswagen", 56.1, 89.4, 34.6, 70800, "El rey", false, 10, false, 700, 170);
             Iots iot06 = new Iots("Audi", 54.6, 80.7, 76.1, 90400, "Iotet", true, 8, true, 800, 160);
 
-            Motores motora01 = new Motores("Dufour", 45.1, 78.6, 98.3, 60000, "Dufi", false, true, 980, 160);
+            Motores motora01 = new Motores("Dufg", 45.1, 78.6, 98.3, 60000, "Dufi", false, true, 980, 160);
             Motores motora02 = new Motores("Beneteau", 25.9, 36.7, 25.9, 17000, "Berni", true, false, 750, 145);
             Motores motora03 = new Motores("Lagoon", 58.9, 14.6, 47.2, 25000, "Lago", true, false, 590, 230);
             Motores motora04 = new Motores("Jeanneau", 87.9, 45.8, 78.1, 36489, "Jense", false, true, 1200, 258);
@@ -125,7 +128,7 @@ public class Gestio {
             Lloguer lloguer01 = new Lloguer(true, patro03, data7, data12, client03, EnumEstat.DISPONIBLE, vaixell06);
             Lloguer lloguer02 = new Lloguer(false, data7, data12, client04, EnumEstat.DISPONIBLE, vaixell05);
             Lloguer lloguer03 = new Lloguer(true, patro02, data7, data12, client01, EnumEstat.DISPONIBLE, vaixell04);
-            Lloguer lloguer04 = new Lloguer(false, data7, data12,client02, EnumEstat.DISPONIBLE, vaixell02);
+            Lloguer lloguer04 = new Lloguer(false, data7, data12, client02, EnumEstat.DISPONIBLE, vaixell02);
             Lloguer lloguer05 = new Lloguer(false, data7, data12, client05, EnumEstat.DISPONIBLE, vaixell01);
             Lloguer lloguer06 = new Lloguer(true, patro02, data7, data12, client06, EnumEstat.DISPONIBLE, vaixell03);
 
@@ -135,6 +138,7 @@ public class Gestio {
             empresa.afegirClient(client04);
             empresa.afegirClient(client05);
             empresa.afegirClient(client06);
+     
 
             empresa.afegiPatro(patro01);
             empresa.afegiPatro(patro02);
@@ -251,24 +255,12 @@ public class Gestio {
             empleatRe06.afegirHabilitat(EnumHabilitats.ELECTRICITAT);
             empleatRe06.afegirHabilitat(EnumHabilitats.FUSTERIA);
 
-            empresa.eliminarClient(client06);
-            
-
-            System.out.println(empleatCo01.getDataAlta());
-
-            // Per provar aquest ,s'ha d'executar desde inicialitzador perque si no , no pot agafar l'objete per argument.
-            System.out.println("**REPARACIONS D'UN VAXIELL EN CONCRET**");
-            System.out.println(empresa.llistarRepaVaixell(vaixell03));
-
-            System.out.println("**LLISTAR PER UN INTERVAL DE DATES");
-            System.out.println(empresa.llistarVaixellDispData(data16, data16));
-            
-            String json = vaixell01.tornarJSON();
-            System.out.println(json);
-
             generarFitxer(ruta, empresa);
+
         } catch (IOException ex) {
+
             System.out.println("El fitxer no es valid");
+
         } catch (LimitCaracterString ex) {
 
             System.out.println(ex.getMessage());
@@ -284,44 +276,61 @@ public class Gestio {
         } catch (LimitNumeroTargeta ex) {
 
             System.out.println(ex.getMessage());
-
-        } catch (NoHiEsLlista ex) {
-
-            System.out.println(ex.getMessage());
+            
         } catch (ParseException ex) {
-            
+
             System.out.println("Parse");
-            
-        } catch(DataInicialMajor ex){
-            
+
+        } catch (IdRepetit ex) {
+
             System.out.println(ex.getMessage());
-        } catch(IdRepetit ex){
+
+        } catch (PatroException ex) {
+
             System.out.println(ex.getMessage());
+
         }
-        
 
     }
 
     public void provesEmpresa(Empresa empresa) {
 
-        System.out.println("**MODELS DISPONIBLES**");
-        System.out.println(empresa.llistarMoDisponibles());
+        try {
 
-        System.out.println("**MODELS PER INTERVAL DE PREU**");
-        System.out.println(empresa.llistarIntervalPreu(60000.0, 85000.0));
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date data2 = sdf.parse("2006-05-02");
+            Date data6 = sdf.parse("2006-05-06");
 
-        System.out.println("**REPARACIONS ATURADES");
-        System.out.println(empresa.llistarRepaAturada());
+            System.out.println("**MODELS DISPONIBLES**");
+            System.out.println(empresa.llistarMoDisponibles());
 
-        System.out.println("**REPARACIONS PENDENTS");
-        System.out.println(empresa.llistarRepaPendent());
+            System.out.println("**MODELS PER INTERVAL DE PREU**");
+            System.out.println(empresa.llistarIntervalPreu(60000.0, 85000.0));
 
-        /* System.out.println("**LLISTAR PER UN TIPUS D'EMBARCACIÓ");
-        System.out.println(empresa.llistarTipusEmb(veler07));*/
+            System.out.println("**REPARACIONS ATURADES**");
+            System.out.println(empresa.llistarRepaAturada());
 
- /*Aquest fins que no mirem lo de ses dates no va be
-        System.Out.println("**LLISTAR PER UN INTERVAL DE DATES");
-        System.out.println(empresa.llistarVaixellDispData(,));*/
+            System.out.println("**REPARACIONS PENDENTS**");
+            System.out.println(empresa.llistarRepaPendent());
+
+            System.out.println("**LLISTAR PER UN TIPUS D'EMBARCACIÓ**");
+            System.out.println(empresa.llistarTipusEmb(empresa.tornarModel("pacific")));
+
+            System.out.println("**REPARACIONS D'UN VAXIELL EN CONCRET**");
+            System.out.println(empresa.llistarRepaVaixell(empresa.tornarVaixell("987654321")));
+
+            System.out.println("**LLISTAR PER UN INTERVAL DE DATES");
+            System.out.println(empresa.llistarVaixellDispData(data2, data6));
+
+
+        } catch (DataInicialMajor ex) {
+
+            System.out.println(ex.getMessage());
+
+        } catch (ParseException ex) {
+
+            System.out.println(ex.getMessage());
+        }
     }
 
     public void generarFitxer(String desti, Empresa empr) throws IOException {
@@ -347,13 +356,13 @@ public class Gestio {
 
         Gestio gestio = new Gestio();
 
-        //Empresa empresa = new Empresa("Boat");
-        String ruta = "GuardarObjecte\\GuardarObjecte.txt"; // Parteix de la carpeta del projecte.
-        Empresa empresa = gestio.llegirFitxer(ruta);
-        //gestio.inicialitzacio(empresa, ruta);
+        Empresa empresa = new Empresa("Boat");
 
-        //gestio.provesEmpresa(empresa);
-        
+        String ruta = "GuardarObjecte\\GuardarObjecte.txt"; // Parteix de la carpeta del projecte.
+        //Empresa empresa = gestio.llegirFitxer(ruta);
+        gestio.inicialitzacio(empresa, ruta);
+
+        gestio.provesEmpresa(empresa);
 
     }
 }

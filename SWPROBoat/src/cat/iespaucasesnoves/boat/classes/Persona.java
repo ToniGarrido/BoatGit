@@ -96,10 +96,7 @@ public class Persona implements Serializable {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" + "id=" + id + ", nom=" + nom + ", llinatge=" + llinatge + ", dni=" + dni + ", nie=" + nie + ", passaport=" + passaport + ", numeroDocument=" + numeroDocument + ", adre\u00e7a=" + adreça + ", telefon=" + telefon + ", email=" + email + '}';
-    }
+    
     
     
 

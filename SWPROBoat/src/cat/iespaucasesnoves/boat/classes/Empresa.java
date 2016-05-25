@@ -71,68 +71,68 @@ public class Empresa implements Serializable {
     }
 
     public void afegirReparacio(Reparacio reparacio) throws IdRepetit {
-        if(llistaReparacions.containsKey(reparacio.getId())){
+        if (llistaReparacions.containsKey(reparacio.getId())) {
             throw new IdRepetit("La reparació ja està dins la llista.");
-        }else{
-        llistaReparacions.put(reparacio.getId(), reparacio);
+        } else {
+            llistaReparacions.put(reparacio.getId(), reparacio);
         }
     }
 
     public void afegirModel(Model model) throws IdRepetit {
-        if(llistaModel.containsKey(model.getId())){
+        if (llistaModel.containsKey(model.getId())) {
             throw new IdRepetit("El model ja està dins la llista.");
-        }else{
-        llistaModel.put(model.getId(), model);
+        } else {
+            llistaModel.put(model.getId(), model);
         }
     }
 
     public void afegirLloguer(Lloguer lloguer) throws IdRepetit {
-        if(llistaLloguers.containsKey(lloguer.getId())){
+        if (llistaLloguers.containsKey(lloguer.getId())) {
             throw new IdRepetit("El lloguer ja està dins la llista.");
-        }else{
-        llistaLloguers.put(lloguer.getId(), lloguer);
+        } else {
+            llistaLloguers.put(lloguer.getId(), lloguer);
         }
 
     }
 
     public void afegirVenda(Venda venda) throws IdRepetit {
-        if(llistaVendes.containsKey(venda.getId())){
+        if (llistaVendes.containsKey(venda.getId())) {
             throw new IdRepetit("La venda ja està dins la llista.");
-        }else{
-        llistaVendes.put(venda.getId(), venda);
+        } else {
+            llistaVendes.put(venda.getId(), venda);
         }
 
     }
 
     public void afegirVaixell(Vaixell vaixell) throws IdRepetit {
-        if(llistaVaixells.containsKey(vaixell.getId())){
+        if (llistaVaixells.containsKey(vaixell.getId())) {
             throw new IdRepetit("El vaixell ja està dins la llista.");
-        }else{
-        llistaVaixells.put(vaixell.getId(), vaixell);
+        } else {
+            llistaVaixells.put(vaixell.getId(), vaixell);
         }
     }
 
     public void afegirClient(Client client) throws IdRepetit {
-        if(llistaClients.containsKey(client.getId())){
+        if (llistaClients.containsKey(client.getId())) {
             throw new IdRepetit("El client ja està dins la llista.");
-        }else{
-        llistaClients.put(client.getId(), client);
+        } else {
+            llistaClients.put(client.getId(), client);
         }
     }
 
     public void afegirEmpleat(Empleat empleat) throws IdRepetit {
-        if(llistaEmpleats.containsKey(empleat.getId())){
+        if (llistaEmpleats.containsKey(empleat.getId())) {
             throw new IdRepetit("L'empleat ja està dins la llista.");
-        }else{
-        llistaEmpleats.put(empleat.getId(), empleat);
+        } else {
+            llistaEmpleats.put(empleat.getId(), empleat);
         }
     }
 
     public void afegiPatro(Patro patro) throws IdRepetit {
-        if(llistaPatrons.contains(patro)){
+        if (llistaPatrons.contains(patro)) {
             throw new IdRepetit("El patró ja està dins la llista.");
-        }else{
-        llistaPatrons.add(patro);
+        } else {
+            llistaPatrons.add(patro);
         }
     }
 
@@ -236,8 +236,8 @@ public class Empresa implements Serializable {
     }
 
     public ArrayList<Vaixell> llistarVaixellDispData(Date dataInicial, Date dataFinal) throws DataInicialMajor {
-        
-        if(dataInicial.after(dataFinal)){
+
+        if (dataInicial.after(dataFinal)) {
             throw new DataInicialMajor("La data inicial no pot ser major a la data final.");
         }
 
@@ -246,15 +246,14 @@ public class Empresa implements Serializable {
             Lloguer re = d.getValue();
             if ((dataInicial.before(re.getDataInicial()) && dataFinal.before(re.getDataInicial())) == true) {
                 vaixellsDisp.add(re.getVaixell());
-            } 
-            else if ((dataInicial.after(re.getDataFinal()) && dataFinal.after(re.getDataFinal())) == true) {
+            } else if ((dataInicial.after(re.getDataFinal()) && dataFinal.after(re.getDataFinal())) == true) {
                 vaixellsDisp.add(re.getVaixell());
             }
+        }
+        return vaixellsDisp;
     }
-    return vaixellsDisp ;
-}
 
-public void eliminarVaixell(Vaixell vaixell) throws NoHiEsLlista {
+    public void eliminarVaixell(Vaixell vaixell) throws NoHiEsLlista {
         if (llistaVaixells.containsValue(vaixell)) {
             llistaVaixells.remove(vaixell.getId());
         } else {
@@ -312,4 +311,108 @@ public void eliminarVaixell(Vaixell vaixell) throws NoHiEsLlista {
         }
     }
 
+    public Vaixell tornarVaixell(String matricula) {
+        Vaixell vaixell = null;
+        for (Entry<Integer, Vaixell> d : llistaVaixells.entrySet()) {
+            Vaixell re = d.getValue();
+
+            if (re.getMatricula() == matricula) {
+                vaixell = re;
+                break;
+            }
+
+        }
+        return vaixell;
+
+    }
+
+    public Model tornarModel(String nomModel) {
+        Model model = null;
+        for (Entry<Integer, Model> d : llistaModel.entrySet()) {
+            Model re = d.getValue();
+
+            if (re.getNomModel().equalsIgnoreCase(nomModel)) {
+                model = re;
+                break;
+            }
+        }
+        return model;
+    }
+
+    public Client tornarClient(String document) {
+        Client client = null;
+        for (Entry<Integer, Client> d : llistaClients.entrySet()) {
+            Client re = d.getValue();
+
+            if (re.getNumeroDocument() == document) {
+                client = re;
+                break;
+            }
+        }
+        return client;
+    }
+
+    public Patro tornarPatro(String document) {
+        Patro patro = null;
+        for (Patro d : llistaPatrons) {
+            if (d.getNumeroDocument() == document) {
+                patro = d;
+                break;
+            }
+        }
+        return patro;
+    }
+
+    public Empleat tornarEmpleat(String document) {
+        Empleat empleat = null;
+
+        for (Entry<Integer, Empleat> d : llistaEmpleats.entrySet()) {
+            Empleat re = d.getValue();
+
+            if (re.getNumeroDocument() == document) {
+                empleat = re;
+                break;
+            }
+        }
+        return empleat;
+    }
+
+    public Reparacio tornarReparacio(int id) {
+        Reparacio reparacio = null;
+
+        for (Entry<Integer, Reparacio> d : llistaReparacions.entrySet()) {
+            Reparacio re = d.getValue();
+            if (re.getId() == id) {
+                reparacio = re;
+                break;
+            }
+        }
+        return reparacio;
+    }
+
+    public Venda tornarVenda(int id) {
+        Venda venda = null;
+
+        for (Entry<Integer, Venda> d : llistaVendes.entrySet()) {
+            Venda re = d.getValue();
+            if (re.getId() == id) {
+                venda = re;
+                break;
+            }
+        }
+        return venda;
+    }
+    
+    public Lloguer tornarLloguer(int id) {
+        Lloguer lloguer = null;
+
+        for (Entry<Integer, Lloguer> d : llistaLloguers.entrySet()) {
+            Lloguer re = d.getValue();
+            if (re.getId() == id) {
+                lloguer = re;
+                break;
+            }
+        }
+        return lloguer;
+    }
 }

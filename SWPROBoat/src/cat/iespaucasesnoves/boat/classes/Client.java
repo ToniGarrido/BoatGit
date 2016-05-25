@@ -44,5 +44,12 @@ public class Client extends Persona implements Serializable {
     public void setFormaPagament(Pagament formaPagament) {
         this.formaPagament = formaPagament;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" + "id=" + id + ", nom=" + nom + ", llinatge=" + llinatge + ", dni=" + dni + ", nie=" + nie + ", passaport=" + passaport + ", numeroDocument=" + numeroDocument + ", adre\u00e7a=" + adreça + ", telefon=" + telefon + ", email=" + email + "formaPagament=" + formaPagament + '}';
+    }
+    
+    
     
 }

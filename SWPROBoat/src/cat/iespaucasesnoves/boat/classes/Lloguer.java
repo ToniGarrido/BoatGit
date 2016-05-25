@@ -1,13 +1,13 @@
 package cat.iespaucasesnoves.boat.classes;
 
-
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
+import cat.iespaucasesnoves.boat.excepcions.PatroException;
 import java.io.Serializable;
 import java.util.Date;
 
 public class Lloguer implements Serializable {
 
-    private static int contador=0;
+    private static int contador = 0;
     private int id;
     private boolean tePatro;
     private Date dataInicial;
@@ -17,26 +17,35 @@ public class Lloguer implements Serializable {
     private EnumEstat estatLloger;
     private Vaixell vaixell;
 
-    public Lloguer(boolean tePatro, Date dataInicial, Date dataFinal, Client client, EnumEstat estatLloger, Vaixell vaixell) {
+    public Lloguer(boolean tePatro, Date dataInicial, Date dataFinal, Client client, EnumEstat estatLloger, Vaixell vaixell) throws PatroException {
         contador++;
-        id=contador;
+        id = contador;
         this.tePatro = tePatro;
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
         this.client = client;
         this.estatLloger = estatLloger;
         this.vaixell = vaixell;
+
+        if (tePatro == true) {
+            throw new PatroException("Si te patro s'ha d'indicar quin patro és.");
+        }
     }
-    public Lloguer(boolean tePatro,Patro patro, Date dataInicial, Date dataFinal, Client client, EnumEstat estatLloger, Vaixell vaixell) {
+
+    public Lloguer(boolean tePatro, Patro patro, Date dataInicial, Date dataFinal, Client client, EnumEstat estatLloger, Vaixell vaixell) throws PatroException {
         contador++;
-        id=contador;
+        id = contador;
         this.tePatro = tePatro;
-        this.patro=patro;
+        this.patro = patro;
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
         this.client = client;
         this.estatLloger = estatLloger;
         this.vaixell = vaixell;
+
+        if (tePatro == false) {
+            throw new PatroException("S'ha d'indicar true si s'ha indicat un patró.");
+        }
     }
 
     public int getId() {
@@ -101,6 +110,11 @@ public class Lloguer implements Serializable {
 
     public void setVaixell(Vaixell vaixell) {
         this.vaixell = vaixell;
+    }
+
+    @Override
+    public String toString() {
+        return "Lloguer{" + "id=" + id + ", tePatro=" + tePatro + ", dataInicial=" + dataInicial + ", dataFinal=" + dataFinal + ", client=" + client + ", patro=" + patro + ", estatLloger=" + estatLloger + ", vaixell=" + vaixell + '}';
     }
 
 }

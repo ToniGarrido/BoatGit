@@ -32,7 +32,7 @@ public class Vaixell implements Serializable {
 
     public String tornarJSON() {
 
-        String json = "{" + "\"Id\": " + id +  "," + "\"NomModel\": " + "\"" + model.nomModel  + "," + "\"Matricula\": " + "\"" + matricula + "\""  + ","  + "\"PerLlogar\": " + perLlogar  + "," + "\"PreuPerDia\": " + preuPerDia + "}";
+        String json = "{" + "\"Id\": " + id +  "," + "\"NomModel\": " + "\"" + model.nomModel  + "\"" + "," + "\"Matricula\": " + "\"" + matricula + "\""  + ","  + "\"PerLlogar\": " + perLlogar  + "," + "\"PreuPerDia\": " + preuPerDia + "}";
 
         return json;
     }
@@ -79,7 +79,7 @@ public class Vaixell implements Serializable {
 
     @Override
     public String toString() {
-        return "Vaixell{" + "id=" + id + ", model=" + model + ", matricula=" + matricula + ", propietari=" + propietari + ", perLlogar=" + perLlogar + "}\n";
+        return "Vaixell{" + "id=" + id + ", model=" + model + ", matricula=" + matricula + ", propietari=" + propietari + ", perLlogar=" + perLlogar + ", preuPerDia=" + preuPerDia + "}\n";
     }
 
 }
