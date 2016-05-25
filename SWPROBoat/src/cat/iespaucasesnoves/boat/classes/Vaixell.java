@@ -32,7 +32,7 @@ public class Vaixell implements Serializable {
 
     public String tornarJSON() {
 
-        String json = "{" + "\"Id\": " + id +  "," + "\"NomModel\": " + "\"" + model.nomModel  + "," + "\"Matricula\": " + "\"" + matricula + "\""  + ","  + "\"PerLlogar\": " + perLlogar  + "," + "\"PerLlogar\": " + perLlogar + "}";
+        String json = "{" + "\"Id\": " + id +  "," + "\"NomModel\": " + "\"" + model.nomModel  + "," + "\"Matricula\": " + "\"" + matricula + "\""  + ","  + "\"PerLlogar\": " + perLlogar  + "," + "\"PreuPerDia\": " + preuPerDia + "}";
 
         return json;
     }

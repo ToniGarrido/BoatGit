@@ -2,6 +2,7 @@ package cat.iespaucasesnoves.boat.classes;
 
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
 import cat.iespaucasesnoves.boat.enumeracions.EnumHabilitats;
+import cat.iespaucasesnoves.boat.excepcions.DataInicialMajor;
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterDocument;
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterString;
 import cat.iespaucasesnoves.boat.excepcions.LimitDeDocuments;
@@ -259,7 +260,7 @@ public class Gestio {
 //            System.out.println(empresa.llistarRepaVaixell(vaixell03));
 
             System.out.println("**LLISTAR PER UN INTERVAL DE DATES");
-            System.out.println(empresa.llistarVaixellDispData(data10, data6));
+            System.out.println(empresa.llistarVaixellDispData(data16, data16));
 //            
 //            String json = vaixell01.tornarJSON();
 //            System.out.println(json);
@@ -287,8 +288,14 @@ public class Gestio {
 
             System.out.println(ex.getMessage());
         } catch (ParseException ex) {
+            
             System.out.println("Parse");
+            
+        } catch(DataInicialMajor ex){
+            
+            System.out.println(ex.getMessage());
         }
+        
 
     }
 
