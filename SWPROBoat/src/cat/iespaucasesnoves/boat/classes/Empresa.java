@@ -2,6 +2,7 @@ package cat.iespaucasesnoves.boat.classes;
 
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
 import cat.iespaucasesnoves.boat.excepcions.DataInicialMajor;
+import cat.iespaucasesnoves.boat.excepcions.IdRepetit;
 import cat.iespaucasesnoves.boat.excepcions.NoHiEsLlista;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -69,38 +70,70 @@ public class Empresa implements Serializable {
         return llistaClients;
     }
 
-    public void afegirReparacio(Reparacio reparacio) {
+    public void afegirReparacio(Reparacio reparacio) throws IdRepetit {
+        if(llistaReparacions.containsKey(reparacio.getId())){
+            throw new IdRepetit("La reparació ja està dins la llista.");
+        }else{
         llistaReparacions.put(reparacio.getId(), reparacio);
+        }
     }
 
-    public void afegirModel(Model model) {
+    public void afegirModel(Model model) throws IdRepetit {
+        if(llistaModel.containsKey(model.getId())){
+            throw new IdRepetit("El model ja està dins la llista.");
+        }else{
         llistaModel.put(model.getId(), model);
+        }
     }
 
-    public void afegirLloguer(Lloguer lloguer) {
+    public void afegirLloguer(Lloguer lloguer) throws IdRepetit {
+        if(llistaLloguers.containsKey(lloguer.getId())){
+            throw new IdRepetit("El lloguer ja està dins la llista.");
+        }else{
         llistaLloguers.put(lloguer.getId(), lloguer);
+        }
 
     }
 
-    public void afegirVenda(Venda venda) {
+    public void afegirVenda(Venda venda) throws IdRepetit {
+        if(llistaVendes.containsKey(venda.getId())){
+            throw new IdRepetit("La venda ja està dins la llista.");
+        }else{
         llistaVendes.put(venda.getId(), venda);
+        }
 
     }
 
-    public void afegirVaixell(Vaixell vaixell) {
+    public void afegirVaixell(Vaixell vaixell) throws IdRepetit {
+        if(llistaVaixells.containsKey(vaixell.getId())){
+            throw new IdRepetit("El vaixell ja està dins la llista.");
+        }else{
         llistaVaixells.put(vaixell.getId(), vaixell);
+        }
     }
 
-    public void afegirClient(Client client) {
+    public void afegirClient(Client client) throws IdRepetit {
+        if(llistaClients.containsKey(client.getId())){
+            throw new IdRepetit("El client ja està dins la llista.");
+        }else{
         llistaClients.put(client.getId(), client);
+        }
     }
 
-    public void afegirEmpleat(Empleat empleat) {
+    public void afegirEmpleat(Empleat empleat) throws IdRepetit {
+        if(llistaEmpleats.containsKey(empleat.getId())){
+            throw new IdRepetit("L'empleat ja està dins la llista.");
+        }else{
         llistaEmpleats.put(empleat.getId(), empleat);
+        }
     }
 
-    public void afegiPatro(Patro patro) {
+    public void afegiPatro(Patro patro) throws IdRepetit {
+        if(llistaPatrons.contains(patro)){
+            throw new IdRepetit("El patró ja està dins la llista.");
+        }else{
         llistaPatrons.add(patro);
+        }
     }
 
     public ArrayList<Model> llistarMoDisponibles() {

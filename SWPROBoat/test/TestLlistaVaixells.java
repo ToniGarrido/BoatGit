@@ -7,6 +7,7 @@
 import cat.iespaucasesnoves.boat.classes.Empresa;
 import cat.iespaucasesnoves.boat.classes.Iots;
 import cat.iespaucasesnoves.boat.classes.Vaixell;
+import cat.iespaucasesnoves.boat.excepcions.IdRepetit;
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterString;
 import cat.iespaucasesnoves.boat.excepcions.NoHiEsLlista;
 import org.junit.After;
@@ -23,7 +24,7 @@ import static org.junit.Assert.*;
 public class TestLlistaVaixells {
 
     @Test
-    public void afegirVaixell() throws LimitCaracterString {
+    public void afegirVaixell() throws LimitCaracterString, IdRepetit {
         Empresa empresaProva = new Empresa("EmpresaProva");
         Iots iot01 = new Iots("Toyota", 70.5, 50.8, 40.7, 80000, "Pacific", true, 5, true, 500, 150);
         Iots iot02 = new Iots("Renault", 80.6, 78.1, 56.2, 90000, "El Mari", false, 6, true, 600, 190);
@@ -38,15 +39,24 @@ public class TestLlistaVaixells {
     }
 
     @Test(expected = LimitCaracterString.class)
-    public void afegirVaixellException() throws LimitCaracterString {
+    public void afegirVaixellException() throws LimitCaracterString, IdRepetit {
         Empresa empresaProva = new Empresa("EmpresaProva");
         Iots iot01 = new Iots("qwertyuiopasdfghjklñzxcvbnmqwertyuiopasdfghjk", 70.5, 50.8, 40.7, 80000, "Pacific", true, 5, true, 500, 150);
         Vaixell vaixellProva01 = new Vaixell(iot01, "456789BFR", false);
         empresaProva.afegirVaixell(vaixellProva01);
 
     }
+     @Test(expected = IdRepetit.class)
+    public void afegirVaixellException2() throws IdRepetit, LimitCaracterString {
+        Empresa empresaProva = new Empresa("EmpresaProva");
+        Iots iot01 = new Iots("iot1", 70.5, 50.8, 40.7, 80000, "Pacific", true, 5, true, 500, 150);
+        Vaixell vaixellProva01 = new Vaixell(iot01, "456789BFR", false);
+        empresaProva.afegirVaixell(vaixellProva01);
+        empresaProva.afegirVaixell(vaixellProva01);
+
+    }
     @Test
-    public void esborrarVaixell() throws LimitCaracterString, NoHiEsLlista{
+    public void esborrarVaixell() throws LimitCaracterString, NoHiEsLlista, IdRepetit{
     Empresa empresaProva = new Empresa("EmpresaProva");
         Iots iot01 = new Iots("Toyota", 70.5, 50.8, 40.7, 80000, "Pacific", true, 5, true, 500, 150);
         Iots iot02 = new Iots("Renault", 80.6, 78.1, 56.2, 90000, "El Mari", false, 6, true, 600, 190);

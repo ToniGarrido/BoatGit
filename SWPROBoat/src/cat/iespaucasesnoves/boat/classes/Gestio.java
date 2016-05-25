@@ -3,6 +3,7 @@ package cat.iespaucasesnoves.boat.classes;
 import cat.iespaucasesnoves.boat.enumeracions.EnumEstat;
 import cat.iespaucasesnoves.boat.enumeracions.EnumHabilitats;
 import cat.iespaucasesnoves.boat.excepcions.DataInicialMajor;
+import cat.iespaucasesnoves.boat.excepcions.IdRepetit;
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterDocument;
 import cat.iespaucasesnoves.boat.excepcions.LimitCaracterString;
 import cat.iespaucasesnoves.boat.excepcions.LimitDeDocuments;
@@ -253,21 +254,21 @@ public class Gestio {
             empresa.eliminarClient(client06);
             
 
-//            System.out.println(empleatCo01.getDataAlta());
-//
-//            // Per provar aquest ,s'ha d'executar desde inicialitzador perque si no , no pot agafar l'objete per argument.
-//            System.out.println("**REPARACIONS D'UN VAXIELL EN CONCRET**");
-//            System.out.println(empresa.llistarRepaVaixell(vaixell03));
+            System.out.println(empleatCo01.getDataAlta());
+
+            // Per provar aquest ,s'ha d'executar desde inicialitzador perque si no , no pot agafar l'objete per argument.
+            System.out.println("**REPARACIONS D'UN VAXIELL EN CONCRET**");
+            System.out.println(empresa.llistarRepaVaixell(vaixell03));
 
             System.out.println("**LLISTAR PER UN INTERVAL DE DATES");
             System.out.println(empresa.llistarVaixellDispData(data16, data16));
-//            
-//            String json = vaixell01.tornarJSON();
-//            System.out.println(json);
-//
-//            generarFitxer(ruta, empresa);
-//        } catch (IOException ex) {
-//            System.out.println("El fitxer no es valid");
+            
+            String json = vaixell01.tornarJSON();
+            System.out.println(json);
+
+            generarFitxer(ruta, empresa);
+        } catch (IOException ex) {
+            System.out.println("El fitxer no es valid");
         } catch (LimitCaracterString ex) {
 
             System.out.println(ex.getMessage());
@@ -293,6 +294,8 @@ public class Gestio {
             
         } catch(DataInicialMajor ex){
             
+            System.out.println(ex.getMessage());
+        } catch(IdRepetit ex){
             System.out.println(ex.getMessage());
         }
         
@@ -344,10 +347,10 @@ public class Gestio {
 
         Gestio gestio = new Gestio();
 
-        Empresa empresa = new Empresa("Boat");
+        //Empresa empresa = new Empresa("Boat");
         String ruta = "GuardarObjecte\\GuardarObjecte.txt"; // Parteix de la carpeta del projecte.
-        //Empresa empresa = gestio.llegirFitxer(ruta);
-        gestio.inicialitzacio(empresa, ruta);
+        Empresa empresa = gestio.llegirFitxer(ruta);
+        //gestio.inicialitzacio(empresa, ruta);
 
         //gestio.provesEmpresa(empresa);
         
